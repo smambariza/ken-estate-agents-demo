@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ken Estate Agents | Premium Homes in Bulawayo</title>
-  <meta name="description" content="Ken Estate Agents premium listings in Bulawayo. Book private viewings instantly via email or WhatsApp." />
+  <meta name="description" content="Ken Estate Agents premium listings and advisory services across Zimbabwe. Book private viewings instantly via email or WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@
     .hero-badge{position:absolute;left:18px;bottom:18px;background:rgba(17,17,17,.76);color:#fff;border:1px solid rgba(255,255,255,.16);padding:12px 14px;border-radius:14px;font-size:13px;max-width:360px;line-height:1.45}
 
     .section{padding:56px 0 4px}
-    .section-head{max-width:680px}
+    .section-head{max-width:760px}
     h2{margin:0;font-size:clamp(30px,4vw,46px);line-height:1.08;letter-spacing:-.02em}
     .section-head p{margin:12px 0 0;color:var(--muted);font-size:16px;line-height:1.65}
 
@@ -100,9 +100,19 @@
     .card p{margin:0;color:var(--muted);font-size:15px;line-height:1.62;min-height:72px}
     .card .cta-row{margin-top:16px}
 
-    .gallery{margin-top:24px;display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:14px}
-    .gallery img{width:100%;height:252px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
-    .gallery .tall{height:518px}
+    .services-grid{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .service-card{padding:22px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(165deg,#fff,#fff7ef);box-shadow:0 8px 20px rgba(17,17,17,.04)}
+    .service-card h3{margin:0 0 10px;font-size:22px}
+    .service-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+
+    .about-block{margin-top:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+    .about-copy{padding:30px;background:linear-gradient(180deg,#fff,#fff9f1)}
+    .about-copy p{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.7}
+    .about-media{overflow:hidden;border-radius:22px;border:1px solid var(--line);min-height:320px}
+    .about-media img{height:100%;width:100%;object-fit:cover}
+
+    .cities{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .city{padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px;font-weight:700;box-shadow:0 8px 22px rgba(17,17,17,.04)}
 
     .book{margin:64px auto 110px;padding:34px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;background:linear-gradient(180deg,#fff,#fffaf2)}
     .book h2{max-width:12ch}
@@ -115,10 +125,8 @@
     .sticky .btn{flex:1;min-width:0;padding:0 10px}
 
     @media (max-width:1024px){
-      .hero-grid,.book{grid-template-columns:1fr}
-      .listing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .gallery{grid-template-columns:1fr 1fr}
-      .gallery .tall{grid-column:1/-1;height:330px}
+      .hero-grid,.book,.about-block{grid-template-columns:1fr}
+      .listing-grid,.services-grid,.cities{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width:760px){
       .nav{display:none}
@@ -127,9 +135,7 @@
       h1{font-size:clamp(32px,10vw,46px)}
       .hero-copy{padding:28px 22px}
       .hero-media{min-height:340px}
-      .listing-grid{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
-      .gallery img,.gallery .tall{height:220px}
+      .listing-grid,.services-grid,.cities{grid-template-columns:1fr}
       .book{padding:24px 20px}
       .sticky{display:block}
       body{padding-bottom:84px}
@@ -148,7 +154,7 @@
       </a>
       <nav class="nav">
         <a class="btn btn-secondary" href="#listings">Listings</a>
-        <a class="btn btn-secondary" href="#gallery">Gallery</a>
+        <a class="btn btn-secondary" href="#services">Services</a>
         <a class="btn btn-dark" href="#book">Book Viewing</a>
       </nav>
     </div>
@@ -208,7 +214,7 @@
           <div class="card-body">
             <div class="meta">For Sale · Established suburb</div>
             <h3>Classic Family Home</h3>
-            <p>Elevated setting, mature surroundings, and balanced proportions in one of Bulawayo’s established neighborhoods.</p>
+            <p>Elevated setting, mature surroundings, and balanced proportions in one of Bulawayo's established neighbourhoods.</p>
             <div class="cta-row">
               <a class="btn btn-primary" href="#book">Book Viewing</a>
               <a class="btn btn-secondary" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Classic%20Family%20Home">WhatsApp</a>
@@ -218,18 +224,69 @@
       </div>
     </section>
 
-    <section id="gallery" class="section wrap">
+    <section id="services" class="section wrap">
       <div class="section-head">
-        <h2>Property gallery</h2>
-        <p>Full Ken portfolio preview from the supplied file_34 to file_41 visual set.</p>
+        <h2>Explore our full property services</h2>
+        <p>From first valuation to final handover, Ken Estate Agents supports clients with practical, market-aware guidance for Zimbabwe's property landscape.</p>
       </div>
-      <div class="gallery">
-        <img class="tall" src="assets/properties/client-37.jpg" alt="Ken property gallery 37">
-        <img src="assets/properties/client-35.jpg" alt="Ken property gallery 35">
-        <img src="assets/properties/client-38.jpg" alt="Ken property gallery 38">
-        <img src="assets/properties/client-39.jpg" alt="Ken property gallery 39">
-        <img src="assets/properties/client-41.jpg" alt="Ken property gallery 41">
-        <img src="assets/properties/client-34.jpg" alt="Ken property gallery 34">
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Property Sales</h3>
+          <p>Structured support for residential sales, from pricing alignment to buyer screening and offer negotiation.</p>
+        </article>
+        <article class="service-card">
+          <h3>Property Valuations</h3>
+          <p>Comparable-market based valuation guidance to help owners make informed listing and decision timelines.</p>
+        </article>
+        <article class="service-card">
+          <h3>Commercial Property Sales</h3>
+          <p>Targeted sales assistance for offices, retail spaces, and mixed-use assets in key Zimbabwean business nodes.</p>
+        </article>
+        <article class="service-card">
+          <h3>Rentals & Lettings Support</h3>
+          <p>End-to-end assistance with tenant placement, listing administration, and rental onboarding processes.</p>
+        </article>
+        <article class="service-card">
+          <h3>Property Marketing & Listing Exposure</h3>
+          <p>Professional listing presentation and channel distribution designed to improve qualified enquiry volumes.</p>
+        </article>
+        <article class="service-card">
+          <h3>Buyer & Seller Advisory</h3>
+          <p>Clear guidance on transaction preparation, documentation readiness, and practical next steps on both sides.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section wrap">
+      <div class="section-head">
+        <h2>About Ken Estate Agents</h2>
+        <p>A focused Zimbabwean property team committed to dependable communication, clear process management, and practical advice at every stage of your move.</p>
+      </div>
+      <div class="about-block">
+        <div class="panel about-copy">
+          <div class="eyebrow">Trusted local perspective</div>
+          <h3>Built around responsive service and realistic market guidance.</h3>
+          <p>We work with buyers, sellers, landlords, and tenants who value straightforward support. Our approach is simple: understand your requirements, align expectations to local market conditions, and keep every step moving with clarity.</p>
+          <p>Whether your focus is a family home in Bulawayo, an investment opportunity in Harare, or a regional commercial transaction, Ken Estate Agents prioritises professional process handling and transparent communication.</p>
+        </div>
+        <div class="about-media">
+          <img src="assets/properties/client-37.jpg" alt="Ken Estate Agents property showcase">
+        </div>
+      </div>
+    </section>
+
+    <section id="cities" class="section wrap">
+      <div class="section-head">
+        <h2>Cities we serve</h2>
+        <p>Ken Estate Agents supports client enquiries across Zimbabwe's major urban and regional markets.</p>
+      </div>
+      <div class="cities">
+        <div class="city">Bulawayo</div>
+        <div class="city">Harare</div>
+        <div class="city">Gweru</div>
+        <div class="city">Mutare</div>
+        <div class="city">Masvingo</div>
+        <div class="city">Victoria Falls</div>
       </div>
     </section>
 
