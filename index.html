@@ -106,13 +106,25 @@
     .service-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
 
     .about-block{margin-top:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
-    .about-copy{padding:30px;background:linear-gradient(180deg,#fff,#fff9f1)}
+    .about-copy{padding:34px;background:linear-gradient(180deg,#fff,#fff9f1);display:flex;flex-direction:column;justify-content:center}
     .about-copy p{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.7}
-    .about-media{overflow:hidden;border-radius:22px;border:1px solid var(--line);min-height:320px}
+    .about-media{overflow:hidden;border-radius:22px;border:1px solid var(--line);min-height:360px}
     .about-media img{height:100%;width:100%;object-fit:cover}
+    .about-copy .cta-row{margin-top:22px}
 
     .cities{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .city{padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:16px;font-weight:700;box-shadow:0 8px 22px rgba(17,17,17,.04)}
+    .city{padding:18px;background:linear-gradient(170deg,#fff,#fff8f0);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 22px rgba(17,17,17,.04)}
+    .city strong{display:block;font-size:18px;letter-spacing:-.01em}
+    .city span{display:block;margin-top:6px;color:var(--muted);font-size:14px;line-height:1.5}
+
+    .faq-wrap{margin-top:24px;display:grid;grid-template-columns:.9fr 1.1fr;gap:20px}
+    .faq-intro{padding:30px;background:linear-gradient(165deg,#fff,#fff6ea)}
+    .faq-intro p{margin:10px 0 0;color:var(--muted);font-size:16px;line-height:1.7}
+    .faq-list{display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 16px;box-shadow:0 8px 18px rgba(17,17,17,.04)}
+    .faq-item summary{list-style:none;cursor:pointer;padding:16px 2px;font-weight:700;font-size:17px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item p{margin:0 2px 16px;color:var(--muted);font-size:15px;line-height:1.65}
 
     .book{margin:64px auto 110px;padding:34px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;background:linear-gradient(180deg,#fff,#fffaf2)}
     .book h2{max-width:12ch}
@@ -125,7 +137,7 @@
     .sticky .btn{flex:1;min-width:0;padding:0 10px}
 
     @media (max-width:1024px){
-      .hero-grid,.book,.about-block{grid-template-columns:1fr}
+      .hero-grid,.book,.about-block,.faq-wrap{grid-template-columns:1fr}
       .listing-grid,.services-grid,.cities{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
     @media (max-width:760px){
@@ -263,14 +275,18 @@
         <p>A focused Zimbabwean property team committed to dependable communication, clear process management, and practical advice at every stage of your move.</p>
       </div>
       <div class="about-block">
+        <div class="about-media">
+          <img src="assets/properties/client-37.jpg" alt="Ken Estate Agents property showcase">
+        </div>
         <div class="panel about-copy">
           <div class="eyebrow">Trusted local perspective</div>
           <h3>Built around responsive service and realistic market guidance.</h3>
           <p>We work with buyers, sellers, landlords, and tenants who value straightforward support. Our approach is simple: understand your requirements, align expectations to local market conditions, and keep every step moving with clarity.</p>
           <p>Whether your focus is a family home in Bulawayo, an investment opportunity in Harare, or a regional commercial transaction, Ken Estate Agents prioritises professional process handling and transparent communication.</p>
-        </div>
-        <div class="about-media">
-          <img src="assets/properties/client-37.jpg" alt="Ken Estate Agents property showcase">
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#book">Book Viewing</a>
+            <a class="btn btn-secondary" href="https://wa.me/263777123456?text=Hi%20Ken%20Estate%20Agents%2C%20I%20would%20like%20assistance%20with%20a%20property%20search">WhatsApp</a>
+          </div>
         </div>
       </div>
     </section>
@@ -281,12 +297,40 @@
         <p>Ken Estate Agents supports client enquiries across Zimbabwe's major urban and regional markets.</p>
       </div>
       <div class="cities">
-        <div class="city">Bulawayo</div>
-        <div class="city">Harare</div>
-        <div class="city">Gweru</div>
-        <div class="city">Mutare</div>
-        <div class="city">Masvingo</div>
-        <div class="city">Victoria Falls</div>
+        <article class="city"><strong>Bulawayo</strong><span>Residential, family homes, and established suburb transactions.</span></article>
+        <article class="city"><strong>Harare</strong><span>City and suburban property support for sales and advisory.</span></article>
+        <article class="city"><strong>Gweru</strong><span>Midlands market assistance for home buyers and sellers.</span></article>
+        <article class="city"><strong>Mutare</strong><span>Property guidance for clients in Manicaland growth corridors.</span></article>
+        <article class="city"><strong>Masvingo</strong><span>Sales and lettings support for central and regional clients.</span></article>
+        <article class="city"><strong>Victoria Falls</strong><span>Select residential and investment-focused property enquiries.</span></article>
+      </div>
+    </section>
+
+    <section id="faq" class="section wrap">
+      <div class="faq-wrap">
+        <div class="panel faq-intro">
+          <div class="eyebrow">Frequently asked questions</div>
+          <h2>Answers before you commit to a viewing.</h2>
+          <p>Here are common questions from buyers, sellers, and landlords. If you need a tailored response, use WhatsApp or book a direct consultation.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How do I book a property viewing?</summary>
+            <p>Choose any listing and click Book Viewing, then share your preferred date and time. Our team confirms availability through WhatsApp or call-back.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you assist with both buying and selling?</summary>
+            <p>Yes. We support sellers with valuation guidance and marketing, and we help buyers with suitable options and practical transaction advice.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can Ken Estate Agents support rentals and lettings?</summary>
+            <p>Yes. We provide lettings support including listing administration, tenant onboarding steps, and day-to-day guidance for landlords and tenants.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which Zimbabwe cities do you currently cover?</summary>
+            <p>Our active focus includes Bulawayo, Harare, Gweru, Mutare, Masvingo, and Victoria Falls, depending on listing availability and client requirements.</p>
+          </details>
+        </div>
       </div>
     </section>
 
