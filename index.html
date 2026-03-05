@@ -5,362 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ken Estate Agents | Premium Homes in Bulawayo</title>
   <meta name="description" content="Ken Estate Agents premium listings and advisory services across Zimbabwe. Book private viewings instantly via email or WhatsApp." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --orange:#f36d21;
-      --orange-dark:#df5d14;
-      --ink:#263847;
-      --ink-soft:#34495a;
-      --light:#eef2f4;
-      --line:#d9e0e6;
-      --text:#171717;
-      --muted:#5f6971;
-      --white:#fff;
-      --max:1140px;
-      --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:'Manrope',system-ui,sans-serif;color:var(--text);background:#f4f6f8;line-height:1.45}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .wrap{width:min(var(--max),92vw);margin-inline:auto}
+    :root{--orange:#f36d21;--orange-dark:#df5d14;--ink:#263847;--light:#eef2f4;--line:#d9e0e6;--text:#171717;--muted:#5f6971;--max:1140px}
+    *{box-sizing:border-box} html,body{margin:0;padding:0} body{font-family:'Manrope',system-ui,sans-serif;color:var(--text);background:#f4f6f8;line-height:1.45}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}.wrap{width:min(var(--max),92vw);margin-inline:auto}
+    .topbar{background:#fff;border-bottom:1px solid #e7ebef;position:sticky;top:0;z-index:90}.topbar-row{height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px;min-width:0}.brand img{width:230px;max-width:min(48vw,230px);height:68px;object-fit:contain;object-position:left center;padding:8px;border:1px solid #e9edf0;background:#fff;border-radius:12px}
+    .brand small{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#7a8590}.brand strong{display:block;font-size:15px;font-weight:800}
+    .menu{display:flex;gap:10px}.btn{height:46px;padding:0 20px;border-radius:8px;border:1px solid transparent;font-weight:700;font-size:14px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+    .btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange-dark)}.btn-outline{background:#fff;border-color:#cfd8df;color:#21313f}.btn-dark{background:#223645;color:#fff}
 
-    .topbar{background:#fff;border-bottom:1px solid #e7ebef;position:sticky;top:0;z-index:90}
-    .topbar-row{height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:14px;min-width:0}
-    .brand img{width:220px;max-width:min(46vw,220px);height:64px;max-height:64px;object-fit:contain;object-position:left center;padding:6px;border:1px solid #e9edf0;background:#fff;border-radius:12px;overflow:visible}
-    .brand small{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#7a8590}
-    .brand strong{display:block;font-size:15px;font-weight:800}
-    .menu{display:flex;gap:10px}
-    .btn{height:46px;padding:0 20px;border-radius:8px;border:1px solid transparent;font-weight:700;font-size:14px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
-    .btn-primary{background:var(--orange);color:#fff}
-    .btn-primary:hover{background:var(--orange-dark)}
-    .btn-outline{background:#fff;border-color:#cfd8df;color:#21313f}
-    .btn-dark{background:#223645;color:#fff}
-
-    .hero{padding:26px 0 0}
-    .hero-shell{display:grid;grid-template-columns:1.05fr .95fr;min-height:490px;background:#243949}
-    .hero-media{position:relative;background:url('assets/hero-bg.png') center/cover no-repeat}
+    .hero{padding:24px 0 0}.hero-shell{display:grid;grid-template-columns:1.05fr .95fr;min-height:490px;background:#243949}
+    .hero-media{position:relative;background:url('assets/hero-ken.webp') center/cover no-repeat}
     .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,26,34,.68),rgba(16,26,34,.34))}
-    .hero-copy{position:absolute;left:42px;bottom:44px;z-index:2;color:#fff;max-width:430px}
-    .hero-copy small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f0a468;font-weight:700}
-    .hero-copy h1{margin:10px 0 10px;font-size:clamp(34px,5vw,56px);line-height:1.03;letter-spacing:-.03em}
-    .hero-copy p{margin:0;color:#deebf4;font-size:16px;line-height:1.65}
+    .hero-copy{position:absolute;left:42px;bottom:44px;z-index:2;color:#fff;max-width:430px}.hero-copy h1{margin:10px 0;font-size:clamp(34px,5vw,56px);line-height:1.03;letter-spacing:-.03em}
+    .hero-copy p{margin:0;color:#deebf4;font-size:16px;line-height:1.65}.hero-copy small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f0a468;font-weight:700}
+    .search-panel{padding:34px 30px;background:rgba(34,52,66,.94);color:#fff;display:flex;flex-direction:column;justify-content:center}.search-tabs{display:flex;gap:8px;margin-bottom:16px}
+    .search-tabs button{height:40px;padding:0 14px;border-radius:6px;border:1px solid #4a6274;background:#2d4354;color:#fff;font-weight:700}.search-tabs button.active{background:var(--orange);border-color:var(--orange)}
+    .search-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.search-grid label{font-size:12px;color:#bbcad5;display:block;margin:0 0 5px}
+    .search-grid input,.search-grid select{width:100%;height:42px;border:1px solid #4e6373;background:#31495b;color:#fff;border-radius:6px;padding:0 10px;font-size:13px}.search-actions{display:flex;gap:10px;margin-top:14px}
 
-    .search-panel{padding:34px 30px;background:rgba(34,52,66,.94);color:#fff;display:flex;flex-direction:column;justify-content:center}
-    .search-tabs{display:flex;gap:8px;margin-bottom:16px}
-    .search-tabs button{height:40px;padding:0 14px;border-radius:6px;border:1px solid #4a6274;background:#2d4354;color:#fff;font-weight:700}
-    .search-tabs button.active{background:var(--orange);border-color:var(--orange)}
-    .search-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .search-grid label{font-size:12px;color:#bbcad5;display:block;margin:0 0 5px}
-    .search-grid input,.search-grid select{width:100%;height:42px;border:1px solid #4e6373;background:#31495b;color:#fff;border-radius:6px;padding:0 10px;font-size:13px}
-    .search-actions{display:flex;gap:10px;margin-top:14px}
-    .search-actions .btn{height:42px;border-radius:6px}
+    .who{padding:26px 0}.who-grid{display:grid;grid-template-columns:2fr 1fr}
+    .who-main{background:linear-gradient(0deg,rgba(237,241,244,.93),rgba(237,241,244,.93)),url('assets/properties/34.jpg') center/cover no-repeat;padding:34px}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#687684;font-weight:700}.who-main h2{margin:10px 0 12px;font-size:40px;line-height:1.08;letter-spacing:-.02em}.who-main p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+    .why{background:linear-gradient(0deg,rgba(243,109,33,.9),rgba(243,109,33,.9)),url('assets/properties/35.jpg') center/cover no-repeat;padding:34px;color:#fff;display:flex;flex-direction:column;justify-content:center}.why h3{margin:8px 0 10px;font-size:30px;line-height:1.15}
 
-    .who{padding:26px 0}
-    .who-grid{display:grid;grid-template-columns:2fr 1fr}
-    .who-main{background:#edf1f4;padding:34px}
-    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#687684;font-weight:700}
-    .who-main h2{margin:10px 0 12px;font-size:40px;line-height:1.08;letter-spacing:-.02em}
-    .who-main p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
-    .who-main .btn{margin-top:18px}
-    .why{background:linear-gradient(180deg,rgba(243,109,33,.95),rgba(233,93,14,.95));padding:34px;color:#fff;display:flex;flex-direction:column;justify-content:center}
-    .why h3{margin:8px 0 10px;font-size:30px;line-height:1.15;letter-spacing:-.02em}
+    .services{padding:18px 0 30px}.services-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid var(--line)}
+    .service{padding:0;border-right:1px solid var(--line)}.service:last-child{border-right:0}.service .thumb{height:140px;background-size:cover;background-position:center}
+    .service .content{padding:22px}.service h4{margin:0 0 8px;font-size:22px}.service p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
 
-    .services{padding:18px 0 30px}
-    .services-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid var(--line)}
-    .service{padding:30px 24px;border-right:1px solid var(--line)}
-    .service:last-child{border-right:0}
-    .icon{width:56px;height:56px;border:2px solid #f1c6a8;border-radius:50%;display:grid;place-items:center;color:var(--orange);font-size:24px;margin-bottom:12px}
-    .service h4{margin:0 0 8px;font-size:22px;letter-spacing:-.01em}
-    .service p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .featured{padding:10px 0 34px}.featured-shell{background:#ecf1f4;padding:30px}.section-title{text-align:center;margin:0;font-size:42px;letter-spacing:-.02em}
+    .tabs{display:flex;justify-content:center;gap:0;margin:16px 0 22px}.tabs button{height:42px;padding:0 24px;border:1px solid #bdc8d1;background:#fff;font-weight:700}
+    .tabs button:first-child{border-radius:6px 0 0 6px}.tabs button:last-child{border-radius:0 6px 6px 0}.tabs button.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:#fff;border:1px solid #d8e0e6}.card-media{aspect-ratio:4/3}.card-media img{width:100%;height:100%;object-fit:cover}
+    .card-body{padding:14px}.tag{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#8d98a0;font-weight:700}.card h5{margin:7px 0 5px;font-size:24px;line-height:1.15}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;min-height:40px}
+    .mini-cta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}.mini-cta .btn{height:36px;padding:0 12px;font-size:12px}
 
-    .featured{padding:10px 0 34px}
-    .featured-shell{background:#ecf1f4;padding:30px}
-    .section-title{text-align:center;margin:0;font-size:42px;letter-spacing:-.02em}
-    .tabs{display:flex;justify-content:center;gap:0;margin:16px 0 22px}
-    .tabs button{height:42px;padding:0 24px;border:1px solid #bdc8d1;background:#fff;font-weight:700}
-    .tabs button:first-child{border-radius:6px 0 0 6px}
-    .tabs button:last-child{border-radius:0 6px 6px 0}
-    .tabs button.active{background:var(--orange);color:#fff;border-color:var(--orange)}
-    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-    .card{background:#fff;border:1px solid #d8e0e6}
-    .card-media{aspect-ratio:4/3}
-    .card-media img{width:100%;height:100%;object-fit:cover}
-    .card-body{padding:14px}
-    .tag{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:#8d98a0;font-weight:700}
-    .card h5{margin:7px 0 5px;font-size:24px;line-height:1.15}
-    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;min-height:40px}
-    .mini-cta{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-    .mini-cta .btn{height:36px;padding:0 12px;font-size:12px}
+    .cities{padding:18px 0 30px}.city-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.city{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .city img{width:100%;height:120px;object-fit:cover}.city .info{padding:14px}.city strong{display:block;font-size:18px}.city span{display:block;margin-top:6px;color:var(--muted);font-size:14px}
 
-    .cities{padding:18px 0 30px}
-    .city-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .city{background:#fff;border:1px solid var(--line);padding:16px;border-radius:10px}
-    .city strong{display:block;font-size:18px}
-    .city span{display:block;margin-top:6px;color:var(--muted);font-size:14px}
-
-    .contact-split{padding:10px 0 0}
-    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;background:#fff}
-    .map{min-height:290px;background:linear-gradient(0deg,rgba(255,255,255,.88),rgba(255,255,255,.88)),url('https://maps.gstatic.com/tactile/basepage/pegman_sherlock.png') center/cover no-repeat;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#6f7a83;font-weight:600}
-    .contact-card{background:var(--orange);color:#fff;padding:34px;border:1px solid #e35d14;border-left:0;display:flex;flex-direction:column;justify-content:center}
-    .contact-card h3{margin:8px 0 12px;font-size:34px;line-height:1.05}
-    .contact-card p{margin:5px 0;font-size:15px}
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;background:#fff}.map{min-height:290px;background:linear-gradient(0deg,rgba(255,255,255,.84),rgba(255,255,255,.84)),url('assets/properties/35.jpg') center/cover no-repeat;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#6f7a83;font-weight:600}
+    .contact-card{background:var(--orange);color:#fff;padding:34px;border:1px solid #e35d14;border-left:0;display:flex;flex-direction:column;justify-content:center}.contact-card h3{margin:8px 0 12px;font-size:34px;line-height:1.05}
     .contact-card .btn{margin-top:14px;background:#fff;color:#db5a14;border:0;width:max-content}
 
-    .footer{margin-top:24px;background:#243746;color:#d7e0e7;padding:34px 0}
-    .footer-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
-    .footer h6{margin:0 0 10px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#f0a468}
-    .footer p,.footer a{margin:6px 0;font-size:13px;color:#d7e0e7;display:block}
-    .newsletter{display:flex;gap:8px;margin-top:8px}
-    .newsletter input{flex:1;height:40px;border:1px solid #4c6170;background:#2d4354;color:#fff;border-radius:6px;padding:0 10px}
-    .copyright{margin-top:16px;font-size:12px;color:#9cb0bf}
-
-    .sticky{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:10px;background:rgba(255,255,255,.96);border-top:1px solid #dbe3e8;display:none}
-    .sticky-inner{width:min(470px,95vw);margin:0 auto;display:flex;gap:8px}
-    .sticky .btn{flex:1;min-width:0;padding:0 10px}
-
-    @media (max-width:1060px){
-      .hero-shell,.who-grid,.contact-grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .contact-card{border-left:1px solid #e35d14;border-top:0}
-    }
-    @media (max-width:760px){
-      .menu{display:none}
-      .topbar-row{height:80px}
-      .brand img{max-width:58vw;height:56px;max-height:56px}
-      .hero-copy{left:22px;right:22px;bottom:24px}
-      .search-grid{grid-template-columns:1fr}
-      .services-row,.city-grid,.cards{grid-template-columns:1fr}
-      .service{border-right:0;border-bottom:1px solid var(--line)}
-      .service:last-child{border-bottom:0}
-      .who-main h2,.section-title{font-size:32px}
-      .sticky{display:block}
-      body{padding-bottom:84px}
-    }
+    .footer{margin-top:24px;background:#243746;color:#d7e0e7;padding:34px 0}.footer-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+    .footer h6{margin:0 0 10px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#f0a468}.footer p,.footer a{margin:6px 0;font-size:13px;color:#d7e0e7;display:block}
+    .sticky{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:10px;background:rgba(255,255,255,.96);border-top:1px solid #dbe3e8;display:none}.sticky-inner{width:min(470px,95vw);margin:0 auto;display:flex;gap:8px}.sticky .btn{flex:1;min-width:0;padding:0 10px}
+    @media (max-width:1060px){.hero-shell,.who-grid,.contact-grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-card{border-left:1px solid #e35d14;border-top:0}}
+    @media (max-width:760px){.menu{display:none}.topbar-row{height:80px}.brand img{max-width:60vw;height:58px}.hero-copy{left:22px;right:22px;bottom:24px}.search-grid,.cards,.services-row,.city-grid{grid-template-columns:1fr}.service{border-right:0;border-bottom:1px solid var(--line)}.service:last-child{border-bottom:0}.sticky{display:block}body{padding-bottom:84px}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-row">
-      <a class="brand" href="#">
-        <img src="assets/logo-client.png" alt="Ken Estate Agents logo">
-        <div>
-          <small>Bulawayo · Zimbabwe</small>
-          <strong>Ken Estate Agents</strong>
-        </div>
-      </a>
-      <nav class="menu">
-        <a class="btn btn-outline" href="#featured">Listings</a>
-        <a class="btn btn-outline" href="#services">Services</a>
-        <a class="btn btn-dark" href="#book">Book Viewing</a>
-      </nav>
-    </div>
-  </header>
-
+  <header class="topbar"><div class="wrap topbar-row"><a class="brand" href="#"><img src="assets/logo-client.png" alt="Ken Estate Agents logo"><div><small>Bulawayo · Zimbabwe</small><strong>Ken Estate Agents</strong></div></a><nav class="menu"><a class="btn btn-outline" href="#featured">Listings</a><a class="btn btn-outline" href="#services">Services</a><a class="btn btn-dark" href="#book">Book Viewing</a></nav></div></header>
   <main>
-    <section class="hero wrap">
-      <div class="hero-shell">
-        <div class="hero-media">
-          <div class="hero-copy">
-            <small>Premium property advisory</small>
-            <h1>We help homes and people find each other.</h1>
-            <p>Ken Estate Agents presents curated homes and a fast conversion flow for private viewings across Zimbabwe's active markets.</p>
-          </div>
-        </div>
-        <aside class="search-panel">
-          <div class="search-tabs">
-            <button class="active">Properties for Sale</button>
-            <button>For Rent</button>
-          </div>
-          <div class="search-grid">
-            <div><label>Where</label><input value="Any Area, City or Suburb" aria-label="Where"></div>
-            <div><label>Price</label><select><option>Any</option></select></div>
-            <div><label>Beds</label><select><option>Any</option></select></div>
-            <div><label>Type</label><select><option>Any</option></select></div>
-          </div>
-          <div class="search-actions">
-            <a class="btn btn-primary" href="#book">Search</a>
-            <a class="btn btn-outline" href="#featured">Advanced Search</a>
-          </div>
-        </aside>
-      </div>
-    </section>
+    <section class="hero wrap"><div class="hero-shell"><div class="hero-media"><div class="hero-copy"><small>Premium property advisory</small><h1>We help homes and people find each other.</h1><p>Ken Estate Agents presents curated homes and a fast conversion flow for private viewings across Zimbabwe's active markets.</p></div></div><aside class="search-panel"><div class="search-tabs"><button class="active">Properties for Sale</button><button>For Rent</button></div><div class="search-grid"><div><label>Where</label><input value="Any Area, City or Suburb" aria-label="Where"></div><div><label>Price</label><select><option>Any</option></select></div><div><label>Beds</label><select><option>Any</option></select></div><div><label>Type</label><select><option>Any</option></select></div></div><div class="search-actions"><a class="btn btn-primary" href="#book">Search</a><a class="btn btn-outline" href="#featured">Advanced Search</a></div></aside></div></section>
 
-    <section class="who wrap" id="about">
-      <div class="who-grid">
-        <article class="who-main">
-          <div class="eyebrow">Who we are</div>
-          <h2>Bringing new life to properties and matching families to the right home.</h2>
-          <p>Ken Estate Agents supports buyers, sellers, landlords, and tenants with practical market guidance and responsive communication. Our process is focused on clarity, speed, and dependable next-step support.</p>
-          <a class="btn btn-primary" href="#book">Read More</a>
-        </article>
-        <article class="why">
-          <div class="eyebrow" style="color:#ffd4b8">Why choose us</div>
-          <h3>Responsive service, realistic advice, and strong conversion support.</h3>
-          <p>From first enquiry to confirmed viewing, we keep momentum high and communication simple.</p>
-        </article>
-      </div>
-    </section>
+    <section class="who wrap" id="about"><div class="who-grid"><article class="who-main"><div class="eyebrow">Who we are</div><h2>Bringing new life to properties and matching families to the right home.</h2><p>Ken Estate Agents supports buyers, sellers, landlords, and tenants with practical market guidance and responsive communication. Our process is focused on clarity, speed, and dependable next-step support.</p><a class="btn btn-primary" href="#book" style="margin-top:18px">Read More</a></article><article class="why"><div class="eyebrow" style="color:#ffd4b8">Why choose us</div><h3>Responsive service, realistic advice, and strong conversion support.</h3><p>From first enquiry to confirmed viewing, we keep momentum high and communication simple.</p></article></div></section>
 
-    <section class="services wrap" id="services">
-      <div class="services-row">
-        <article class="service">
-          <div class="icon">🏠</div>
-          <h4>Buying</h4>
-          <p>Shortlisted homes, sensible price guidance, and practical buyer support from first call to offer stage.</p>
-        </article>
-        <article class="service">
-          <div class="icon">📋</div>
-          <h4>Selling</h4>
-          <p>Valuation insight, listing exposure, and negotiation support to improve qualified enquiries and conversion.</p>
-        </article>
-        <article class="service">
-          <div class="icon">🔑</div>
-          <h4>Renting</h4>
-          <p>Structured lettings support for landlords and tenants, including onboarding and listing administration.</p>
-        </article>
-      </div>
-    </section>
+    <section class="services wrap" id="services"><div class="services-row"><article class="service"><div class="thumb" style="background-image:url('assets/properties/36.jpg')"></div><div class="content"><h4>Buying</h4><p>Shortlisted homes, sensible price guidance, and practical buyer support from first call to offer stage.</p></div></article><article class="service"><div class="thumb" style="background-image:url('assets/properties/37.jpg')"></div><div class="content"><h4>Selling</h4><p>Valuation insight, listing exposure, and negotiation support to improve qualified enquiries and conversion.</p></div></article><article class="service"><div class="thumb" style="background-image:url('assets/properties/38.jpg')"></div><div class="content"><h4>Renting</h4><p>Structured lettings support for landlords and tenants, including onboarding and listing administration.</p></div></article></div></section>
 
-    <section class="featured wrap" id="featured">
-      <div class="featured-shell">
-        <h2 class="section-title">Featured Properties</h2>
-        <div class="tabs">
-          <button class="active">For Sale</button>
-          <button>For Rent</button>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <div class="card-media"><img src="assets/properties/client-34.jpg" alt="Solar-Roof Residence"></div>
-            <div class="card-body">
-              <div class="tag">Bulawayo</div>
-              <h5>Solar-Roof Residence</h5>
-              <p>Wide frontage and practical single-level planning for modern family life.</p>
-              <div class="mini-cta">
-                <a class="btn btn-primary" href="#book">Book Viewing</a>
-                <a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Solar-Roof%20Residence">WhatsApp</a>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media"><img src="assets/properties/client-36.jpg" alt="Modern Double-Storey"></div>
-            <div class="card-body">
-              <div class="tag">Harare</div>
-              <h5>Modern Double-Storey</h5>
-              <p>Contemporary architecture, strong glazing, and premium lifestyle positioning.</p>
-              <div class="mini-cta">
-                <a class="btn btn-primary" href="#book">Book Viewing</a>
-                <a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Modern%20Double-Storey">WhatsApp</a>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media"><img src="assets/properties/client-40.jpg" alt="Classic Family Home"></div>
-            <div class="card-body">
-              <div class="tag">Gweru</div>
-              <h5>Classic Family Home</h5>
-              <p>Established neighbourhood character with balanced proportions.</p>
-              <div class="mini-cta">
-                <a class="btn btn-primary" href="#book">Book Viewing</a>
-                <a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Classic%20Family%20Home">WhatsApp</a>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-media"><img src="assets/properties/client-41.jpg" alt="Featured Ken property"></div>
-            <div class="card-body">
-              <div class="tag">Mutare</div>
-              <h5>Landscaped Villa</h5>
-              <p>Strong curb appeal and immediate viewing slots available this week.</p>
-              <div class="mini-cta">
-                <a class="btn btn-primary" href="#book">Book Viewing</a>
-                <a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Landscaped%20Villa">WhatsApp</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="featured wrap" id="featured"><div class="featured-shell"><h2 class="section-title">Featured Properties</h2><div class="tabs"><button class="active">For Sale</button><button>For Rent</button></div><div class="cards">
+      <article class="card"><div class="card-media"><img src="assets/properties/39.jpg" alt="Jacaranda Garden Home"></div><div class="card-body"><div class="tag">Bulawayo</div><h5>Jacaranda Garden Home</h5><p>Quiet street profile with generous stand and refreshed interiors.</p><div class="mini-cta"><a class="btn btn-primary" href="#book">Book Viewing</a><a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Jacaranda%20Garden%20Home">WhatsApp</a></div></div></article>
+      <article class="card"><div class="card-media"><img src="assets/properties/40.jpg" alt="Double-Storey Hillside"></div><div class="card-body"><div class="tag">Harare</div><h5>Double-Storey Hillside</h5><p>Elevated views and practical family zoning over two levels.</p><div class="mini-cta"><a class="btn btn-primary" href="#book">Book Viewing</a><a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Double-Storey%20Hillside">WhatsApp</a></div></div></article>
+      <article class="card"><div class="card-media"><img src="assets/properties/41.jpg" alt="Stone-Accent Villa"></div><div class="card-body"><div class="tag">Gweru</div><h5>Stone-Accent Villa</h5><p>Strong curb appeal with entertaining zones and mature gardens.</p><div class="mini-cta"><a class="btn btn-primary" href="#book">Book Viewing</a><a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Stone-Accent%20Villa">WhatsApp</a></div></div></article>
+      <article class="card"><div class="card-media"><img src="assets/properties/35.jpg" alt="Modern Family Residence"></div><div class="card-body"><div class="tag">Mutare</div><h5>Modern Family Residence</h5><p>Move-in-ready planning with clean finishes and secure perimeter.</p><div class="mini-cta"><a class="btn btn-primary" href="#book">Book Viewing</a><a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20am%20interested%20in%20Modern%20Family%20Residence">WhatsApp</a></div></div></article>
+    </div></div></section>
 
-    <section class="cities wrap" id="cities">
-      <div class="city-grid">
-        <article class="city"><strong>Bulawayo</strong><span>Residential, family homes, and established suburb transactions.</span></article>
-        <article class="city"><strong>Harare</strong><span>City and suburban property support for sales and advisory.</span></article>
-        <article class="city"><strong>Gweru</strong><span>Midlands market assistance for home buyers and sellers.</span></article>
-        <article class="city"><strong>Mutare</strong><span>Property guidance for clients in Manicaland growth corridors.</span></article>
-        <article class="city"><strong>Masvingo</strong><span>Sales and lettings support for central and regional clients.</span></article>
-        <article class="city"><strong>Victoria Falls</strong><span>Select residential and investment-focused property enquiries.</span></article>
-      </div>
-    </section>
+    <section class="cities wrap" id="cities"><div class="city-grid">
+      <article class="city"><img src="assets/properties/36.jpg" alt="Bulawayo"><div class="info"><strong>Bulawayo</strong><span>Residential, family homes, and established suburb transactions.</span></div></article>
+      <article class="city"><img src="assets/properties/37.jpg" alt="Harare"><div class="info"><strong>Harare</strong><span>City and suburban property support for sales and advisory.</span></div></article>
+      <article class="city"><img src="assets/properties/38.jpg" alt="Gweru"><div class="info"><strong>Gweru</strong><span>Midlands market assistance for home buyers and sellers.</span></div></article>
+      <article class="city"><img src="assets/properties/39.jpg" alt="Mutare"><div class="info"><strong>Mutare</strong><span>Property guidance for clients in Manicaland growth corridors.</span></div></article>
+      <article class="city"><img src="assets/properties/40.jpg" alt="Masvingo"><div class="info"><strong>Masvingo</strong><span>Sales and lettings support for central and regional clients.</span></div></article>
+      <article class="city"><img src="assets/properties/41.jpg" alt="Victoria Falls"><div class="info"><strong>Victoria Falls</strong><span>Select residential and investment-focused property enquiries.</span></div></article>
+    </div></section>
 
-    <section class="contact-split wrap" id="book">
-      <div class="contact-grid">
-        <div class="map">Bulawayo service map placeholder</div>
-        <aside class="contact-card">
-          <div class="eyebrow" style="color:#ffd4b8">Contact</div>
-          <h3>Get in touch</h3>
-          <p><strong>Ken Estate Agents</strong></p>
-          <p>Bulawayo, Zimbabwe</p>
-          <p>☎ <a href="tel:+263777123456">+263 77 712 3456</a></p>
-          <p>✉ <a href="mailto:info@kenestateagents.co.zw">info@kenestateagents.co.zw</a></p>
-          <a class="btn" href="mailto:viewings@kenestateagents.co.zw?subject=Book%20Viewing%20-%20Ken%20Estate%20Agents">Book Viewing</a>
-          <a class="btn btn-outline" style="margin-top:8px;background:transparent;border-color:#ffc6a3;color:#fff" href="https://wa.me/263777123456?text=Please%20book%20my%20private%20viewing%20with%20Ken%20Estate%20Agents">Book via WhatsApp</a>
-        </aside>
-      </div>
-    </section>
+    <section class="contact-split wrap" id="book"><div class="contact-grid"><div class="map">Bulawayo service map & viewing area</div><aside class="contact-card"><div class="eyebrow" style="color:#ffd4b8">Contact</div><h3>Get in touch</h3><p><strong>Ken Estate Agents</strong></p><p>Bulawayo, Zimbabwe</p><p>☎ <a href="tel:+263777123456">+263 77 712 3456</a></p><p>✉ <a href="mailto:info@kenestateagents.co.zw">info@kenestateagents.co.zw</a></p><a class="btn" href="mailto:viewings@kenestateagents.co.zw?subject=Book%20Viewing%20-%20Ken%20Estate%20Agents">Book Viewing</a><a class="btn btn-outline" style="margin-top:8px;background:transparent;border-color:#ffc6a3;color:#fff" href="https://wa.me/263777123456?text=Please%20book%20my%20private%20viewing%20with%20Ken%20Estate%20Agents">Book via WhatsApp</a></aside></div></section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <h6>Selling</h6>
-          <a href="#services">Property valuations</a>
-          <a href="#services">Marketing exposure</a>
-          <a href="#book">Seller advisory</a>
-        </div>
-        <div>
-          <h6>Buying</h6>
-          <a href="#featured">Homes for sale</a>
-          <a href="#cities">Cities served</a>
-          <a href="#book">Acquisition support</a>
-        </div>
-        <div>
-          <h6>Renting</h6>
-          <a href="#services">Rentals support</a>
-          <a href="#services">Tenant flow</a>
-          <a href="#book">Landlord help</a>
-        </div>
-        <div>
-          <h6>Support</h6>
-          <a href="#about">About us</a>
-          <a href="#book">Contact</a>
-          <a href="https://maps.google.com/?q=Bulawayo%20Zimbabwe" target="_blank" rel="noopener">Map</a>
-        </div>
-        <div>
-          <h6>Newsletter</h6>
-          <p>Receive curated property updates.</p>
-          <div class="newsletter">
-            <input type="email" placeholder="Your email">
-            <button class="btn btn-primary" style="height:40px;padding:0 12px">→</button>
-          </div>
-        </div>
-      </div>
-      <div class="copyright">© Ken Estate Agents. All rights reserved.</div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="wrap"><div class="footer-grid"><div><h6>Selling</h6><a href="#services">Property valuations</a><a href="#services">Marketing exposure</a><a href="#book">Seller advisory</a></div><div><h6>Buying</h6><a href="#featured">Homes for sale</a><a href="#cities">Cities served</a><a href="#book">Acquisition support</a></div><div><h6>Renting</h6><a href="#services">Rentals support</a><a href="#services">Tenant flow</a><a href="#book">Landlord help</a></div><div><h6>Support</h6><a href="#about">About us</a><a href="#book">Contact</a><a href="https://maps.google.com/?q=Bulawayo%20Zimbabwe" target="_blank" rel="noopener">Map</a></div><div><h6>Newsletter</h6><p>Receive curated property updates.</p></div></div><div style="margin-top:16px;font-size:12px;color:#9cb0bf">© Ken Estate Agents. All rights reserved.</div></div></footer>
 
-  <div class="sticky">
-    <div class="sticky-inner">
-      <a class="btn btn-primary" href="#book">Book Viewing</a>
-      <a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20want%20to%20book%20a%20viewing">WhatsApp</a>
-    </div>
-  </div>
+  <div class="sticky"><div class="sticky-inner"><a class="btn btn-primary" href="#book">Book Viewing</a><a class="btn btn-outline" href="https://wa.me/263777123456?text=I%20want%20to%20book%20a%20viewing">WhatsApp</a></div></div>
 </body>
 </html>
