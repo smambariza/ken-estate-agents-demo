@@ -217,7 +217,8 @@
         /* ── HERO ──────────────────────────────────────── */
         .hero {
             position: relative;
-            min-height: 600px;
+            height: min(82vh, 700px);
+            min-height: 520px;
             display: grid;
             grid-template-columns: 1fr 440px;
             background: var(--ink)
@@ -1168,7 +1169,8 @@
         /* ── RESPONSIVE ────────────────────────────────── */
         @media(max-width:1060px) {
             .hero {
-                grid-template-columns: 1fr
+                grid-template-columns: 1fr;
+                height: auto
             }
 
             .search-panel {
@@ -1213,15 +1215,18 @@
             }
 
             .hero-img {
-                min-height: 64vh
+                height: 75vw;
+                min-height: 340px;
+                max-height: 520px
             }
 
             .hero-copy {
-                position: relative;
-                left: auto;
-                bottom: auto;
-                padding: 28px 22px;
-                max-width: none
+                position: absolute;
+                bottom: 28px;
+                left: 24px;
+                right: 24px;
+                max-width: none;
+                padding: 0
             }
 
             .hero-copy h1 {
