@@ -1,929 +1,1933 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Ken Estate Agents | Premium Homes in Bulawayo</title>
-    <meta name="description" content="Ken Estate Agents premium listings and advisory services across Zimbabwe.">
-    <!-- Fonts -->
+    <meta name="description"
+        content="Ken Estate Agents — Bulawayo's trusted property specialists. Sales, rentals, valuations and management across Zimbabwe's finest suburbs." />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        /* CSS RESET & VARIABLES */
         :root {
             --orange: #f36d21;
-            --orange-dark: #e06018;
-            --slate: #2b3d4f;
-            --slate-hero: rgba(43, 61, 79, 0.92);
-            --bg-light: #f4f7f6;
-            --text-main: #606c76;
-            --text-dark: #202d38;
-            --border: #eaedf0;
-            --font-sans: 'Montserrat', sans-serif;
-            --font-serif: 'Playfair Display', serif;
+            --orange-dk: #d95810;
+            --orange-lt: #fdf0e8;
+            --ink: #1a2a35;
+            --ink2: #243040;
+            --gold: #c9933a;
+            --gold-lt: #f5e9d6;
+            --muted: #5f6e78;
+            --line: #dde4ea;
+            --light: #f4f6f8;
+            --white: #fff;
+            --max: 1240px;
+            --r: 10px;
+            --shadow: 0 4px 32px rgba(26, 42, 53, .10);
+            --shadow-lg: 0 12px 56px rgba(26, 42, 53, .18);
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-sans); color: var(--text-main); line-height: 1.6; background: #fff; overflow-x: hidden; }
-        img { max-width: 100%; display: block; }
-        a { text-decoration: none; transition: 0.3s; }
-        ul { list-style: none; }
-        button, input, select { font-family: inherit; outline: none; }
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER */
-        .header {
-            background: #fff;
-            padding: 24px 0;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.5
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        .inner {
+            width: min(var(--max), 94vw);
+            margin-inline: auto
+        }
+
+        /* ── NAV ───────────────────────────────────────── */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--line);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 16px rgba(26, 42, 53, .06)
         }
-        .header-inner {
+
+        .nav-row {
+            height: 80px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            gap: 20px
+        }
+
+        .brand img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            object-position: left center
+        }
+
+        .nav-links {
+            display: flex;
             align-items: center;
+            gap: 4px
         }
-        .logo img { height: 48px; object-fit: contain; }
-        .main-nav { display: flex; gap: 35px; }
-        .main-nav a {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-        .main-nav a:hover, .main-nav a.active { color: var(--orange); }
-        .header-social { display: flex; gap: 15px; }
-        .header-social a {
-            color: var(--text-main);
+
+        .nav-links a {
+            padding: 8px 16px;
+            border-radius: 6px;
             font-size: 14px;
-        }
-        .header-social a:hover { color: var(--orange); }
-
-        /* HERO SECTION */
-        .hero-wrapper {
-            position: relative;
-            background: url('assets/hero-ken.webp') center/cover no-repeat;
-            min-height: 640px;
-        }
-        .hero-overlay-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--slate-hero);
-            z-index: 1;
-        }
-        /* Mobile overlay adjusts transparent left overlay to full screen if needed, but we keep it clean */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            height: 640px; /* Sync with min-height */
-        }
-        .hero-text-area {
-            width: 55%;
-            padding-right: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .hero-title {
-            font-size: 54px;
-            color: #fff;
-            line-height: 1.05;
-            letter-spacing: -0.5px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .hero-title .font-light { font-weight: 300; display: block; margin-bottom: 2px; }
-        .hero-title strong { font-weight: 700; display: block; }
-
-        .hero-search-area {
-            width: 45%;
-            padding: 0 40px;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .search-tabs { display: flex; gap: 10px; margin-bottom: 30px; }
-        .search-tabs button {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.4);
-            color: #fff;
-            padding: 12px 24px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-        .search-tabs button.active { border-color: var(--orange); }
-        .search-form .form-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        .search-form label {
-            width: 65px;
-            font-size: 13px;
-            color: #bbc1c6;
             font-weight: 500;
+            color: var(--ink2);
+            transition: background .2s, color .2s
         }
-        .search-form input, .search-form select {
-            flex: 1;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #fff;
-            padding: 12px 14px;
-            font-size: 13px;
-            border-radius: 4px;
+
+        .nav-links a:hover {
+            background: var(--light);
+            color: var(--orange)
         }
-        .search-form input::placeholder { color: rgba(255,255,255,0.5); }
-        .search-form select option { background: var(--text-dark); color: #fff; }
-        .price-inputs { display: flex; flex: 1; align-items: center; gap: 10px; }
-        .price-span { font-size: 12px; color: #bbc1c6; }
-        .search-actions {
-            margin-top: 24px;
-            padding-left: 65px;
+
+        .nav-links a.active {
+            color: var(--orange)
+        }
+
+        .nav-cta {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            gap: 8px;
+            margin-left: 8px
         }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 22px;
+            border-radius: 8px;
+            border: 1.5px solid transparent;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all .22s;
+            white-space: nowrap;
+            font-family: inherit
+        }
+
         .btn-primary {
             background: var(--orange);
-            color: #fff;
-            border: none;
-            padding: 14px 30px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            color: var(--white)
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dk);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(243, 109, 33, .32)
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: var(--line);
+            color: var(--ink2)
+        }
+
+        .btn-outline:hover {
+            border-color: var(--orange);
+            color: var(--orange)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, .45)
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
             cursor: pointer;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(243, 109, 33, 0.3);
-            transition: 0.3s;
-        }
-        .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
-        .advanced-link {
-            color: var(--orange);
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
+            padding: 6px
         }
 
-        /* OVERLAPPING ABOUT SECTION */
-        .about-section {
-            position: relative;
-            z-index: 10;
-            margin-top: 0;
-            padding-bottom: 60px;
-        }
-        .about-grid { display: flex; align-items: flex-start; }
-        .about-left {
-            width: 65%;
-            background: #fff;
-            padding: 60px 80px 60px 100px;
-            margin-top: -80px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            position: relative;
-        }
-        .about-icon-circle {
-            position: absolute;
-            left: -40px;
-            top: 70px;
-            width: 80px;
-            height: 80px;
-            background: #fff;
-            border: 2px solid var(--orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--orange);
-            font-size: 30px;
-        }
-        .eyebrow, .eyebrow-white {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .eyebrow { color: var(--text-main); }
-        .eyebrow-white { color: #ffd2b5; }
-        .about-left h2 {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            color: var(--text-dark);
-            font-style: italic;
-            line-height: 1.3;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        .about-left p {
-            color: var(--text-main);
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        .read-more {
-            color: var(--orange);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: all .25s
         }
 
-        .about-right {
-            width: 35%;
-            background: var(--orange);
-            padding: 70px 40px;
-            margin-top: -140px;
-            color: #fff;
-            text-align: center;
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 80px 0 0 0;
+            background: var(--white);
+            z-index: 99;
+            padding: 24px;
+            overflow-y: auto
+        }
+
+        .mobile-menu.open {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(243, 109, 33, 0.2);
+            gap: 12px
         }
-        .about-right h2 {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            font-style: italic;
-            line-height: 1.3;
-            margin-bottom: 35px;
-            font-weight: 600;
-        }
-        .play-btn {
-            width: 56px;
-            height: 56px;
-            background: #fff;
-            color: var(--orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            padding-left: 3px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: 0.3s;
-        }
-        .play-btn:hover { transform: scale(1.05); }
 
-        /* SERVICES */
-        .services { padding: 40px 0 80px; text-align: center; }
-        .services-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-        .service-box { padding: 15px 10px; }
-        .service-icon-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            width: 60px;
-            height: 60px;
+        .mobile-menu a {
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--ink2);
+            border-bottom: 1px solid var(--line)
         }
-        .service-icon-wrap i {
-            font-size: 40px;
-            color: var(--text-dark);
-            position: relative;
-            z-index: 2;
+
+        .mobile-menu a:hover {
+            color: var(--orange);
+            background: var(--orange-lt)
         }
-        .service-icon-wrap::after {
+
+        /* ── HERO ──────────────────────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            background: var(--ink)
+        }
+
+        .hero-img {
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: .82
+        }
+
+        .hero-img::after {
             content: '';
             position: absolute;
-            bottom: 0px;
-            right: 0px;
-            width: 25px;
-            height: 25px;
-            background: rgba(243, 109, 33, 0.15);
-            border-radius: 50%;
-            z-index: 1;
-        }
-        .service-box h3 {
-            font-size: 13px;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .service-box p {
-            font-size: 13px;
-            color: var(--text-main);
-            line-height: 1.6;
+            inset: 0;
+            background: linear-gradient(110deg, rgba(20, 32, 42, .72) 0%, rgba(20, 32, 42, .28) 70%)
         }
 
-        /* FEATURED PROPERTIES */
-        .featured {
-            background: var(--bg-light);
-            padding: 90px 0;
-            text-align: center;
+        .hero-copy {
+            position: absolute;
+            bottom: 52px;
+            left: 48px;
+            z-index: 2;
+            color: var(--white);
+            max-width: 500px
         }
-        .featured-title {
-            font-family: var(--font-serif);
-            font-size: 34px;
-            font-style: italic;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        .featured-tabs { margin-bottom: 45px; display: inline-flex; }
-        .featured-tabs button {
-            padding: 12px 30px;
-            font-family: var(--font-sans);
-            font-size: 12px;
-            font-weight: 600;
+
+        .hero-eyebrow {
+            font-size: 11px;
+            letter-spacing: .18em;
             text-transform: uppercase;
-            border: 1px solid #d4dbdf;
-            background: #fff;
-            color: var(--text-main);
-            cursor: pointer;
-            transition: 0.3s;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px
         }
-        .featured-tabs button:first-child { border-radius: 4px 0 0 4px; border-right: none;}
-        .featured-tabs button:last-child { border-radius: 0 4px 4px 0; }
-        .featured-tabs button.active {
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--orange)
+        }
+
+        .hero-copy h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4.5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -.02em;
+            margin-bottom: 18px
+        }
+
+        .hero-copy h1 em {
+            font-style: italic;
+            color: #f0a468
+        }
+
+        .hero-copy p {
+            font-size: 16px;
+            color: #d4e3ef;
+            line-height: 1.7;
+            max-width: 400px
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+            flex-wrap: wrap
+        }
+
+        .search-panel {
+            background: rgba(26, 40, 52, .96);
+            backdrop-filter: blur(8px);
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px
+        }
+
+        .search-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--white);
+            margin-bottom: 4px
+        }
+
+        .s-tabs {
+            display: flex;
+            gap: 8px
+        }
+
+        .s-tab {
+            height: 38px;
+            padding: 0 16px;
+            border-radius: 6px;
+            border: 1.5px solid rgba(255, 255, 255, .18);
+            background: transparent;
+            color: #b0c2cf;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit
+        }
+
+        .s-tab.on {
             background: var(--orange);
             border-color: var(--orange);
-            color: #fff;
+            color: var(--white)
         }
 
-        .slider-wrapper { display: flex; align-items: center; gap: 20px; }
-        .slider-arrow {
-            width: 44px;
-            height: 44px;
-            border: 1px solid #d4dbdf;
-            background: #fff;
-            color: var(--orange);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 16px;
-            border-radius: 4px;
+        .s-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
         }
-        .slider-arrow:hover { border-color: var(--orange); background: var(--orange); color: #fff; }
-        .properties-grid { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 
-        .property-card {
-            background: #fff;
-            text-align: left;
-            border: 1px solid var(--border);
-            border-bottom: 3px solid transparent;
-            transition: 0.3s;
-        }
-        .property-card:hover {
-            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
-            border-bottom-color: var(--orange);
-            transform: translateY(-2px);
-        }
-        .property-img-wrap {
-            position: relative;
-            overflow: hidden;
-            height: 210px;
-            background: #e2e8f0;
-        }
-        .property-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .property-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.3s;
-        }
-        .property-card:hover .property-overlay { opacity: 1; }
-        .property-card:hover .property-img-wrap img { transform: scale(1.05); }
-        .btn-view {
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 10px 20px;
-            font-size: 11px;
-            font-family: var(--font-sans);
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            background: transparent;
-            transition: 0.3s;
-            border-radius: 3px;
-        }
-        .btn-view:hover { background: #fff; color: var(--text-dark); }
-        .property-info { padding: 22px 20px; }
-        .property-tag {
+        .s-field label {
             display: block;
-            font-size: 10px;
-            color: #8b969e;
+            font-size: 11px;
+            color: #8da5b4;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        .property-title {
-            font-family: var(--font-serif);
-            font-size: 19px;
-            font-style: italic;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        .property-address {
-            font-size: 13px;
-            color: var(--text-main);
-            margin-bottom: 0;
-            line-height: 1.5;
+            letter-spacing: .1em;
+            margin-bottom: 5px
         }
 
-        /* PARTNERS */
-        .partners {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border);
+        .s-field input,
+        .s-field select {
+            width: 100%;
+            height: 42px;
+            border: 1.5px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .07);
+            color: var(--white);
+            border-radius: 6px;
+            padding: 0 12px;
+            font-size: 13px;
+            font-family: inherit
         }
-        .partners-grid {
+
+        .s-field input::placeholder {
+            color: #6e8799
+        }
+
+        .s-field select option {
+            background: #1e3040;
+            color: var(--white)
+        }
+
+        .s-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 4px
+        }
+
+        /* ── STATS BAR ─────────────────────────────────── */
+        .stats-bar {
+            background: var(--ink2);
+            padding: 22px 0
+        }
+
+        .stats-row {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            opacity: 0.6;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .partner-logo {
-            text-align: center;
-            color: var(--text-dark);
-        }
-        .partner-logo i { font-size: 34px; margin-bottom: 6px; }
-        .partner-logo span {
-            display: block;
-            font-size: 10px;
-            font-family: var(--font-sans);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
+            gap: 16px;
+            flex-wrap: wrap
         }
 
-        /* CONTACT MAP */
-        .contact-area {
+        .stat {
+            text-align: center;
+            padding: 8px 16px
+        }
+
+        .stat strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--orange);
+            font-weight: 700;
+            line-height: 1
+        }
+
+        .stat span {
+            display: block;
+            font-size: 12px;
+            color: #8daebe;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-top: 4px
+        }
+
+        /* ── ABOUT ─────────────────────────────────────── */
+        .about {
+            padding: 80px 0 0
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 0;
+            align-items: stretch
+        }
+
+        .about-main {
+            padding: 56px 52px;
+            background: var(--white)
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px;
             display: flex;
-            margin: 80px auto;
+            align-items: center;
+            gap: 10px
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 22px;
+            height: 2px;
+            background: var(--orange)
+        }
+
+        .about-main h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 42px);
+            line-height: 1.12;
+            letter-spacing: -.02em;
+            margin-bottom: 20px;
+            color: var(--ink)
+        }
+
+        .about-main p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 24px
+        }
+
+        .about-panel {
+            background: linear-gradient(145deg, var(--orange) 0%, #c95a12 100%);
+            padding: 52px 40px;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
-            background: #fff;
-            min-height: 420px;
+            overflow: hidden
         }
-        .map-col {
-            width: 65%;
-            background: url('assets/properties/client-39.jpg') center/cover;
-            filter: grayscale(100%) opacity(30%);
-            border: 1px solid var(--border);
-        }
-        .contact-col {
+
+        .about-panel::before {
+            content: '';
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 38%;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .about-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .about-panel .eyebrow {
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .about-panel .eyebrow::before {
+            background: rgba(255, 255, 255, .5)
+        }
+
+        .about-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1
+        }
+
+        .about-panel p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .85);
+            position: relative;
+            z-index: 1
+        }
+
+        .pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 28px
+        }
+
+        .pillar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+            position: relative;
+            z-index: 1
+        }
+
+        .pillar svg {
+            flex-shrink: 0;
+            opacity: .9
+        }
+
+        .pillar p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white)
+        }
+
+        /* ── SERVICES ──────────────────────────────────── */
+        .services {
+            padding: 80px 0
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 52px
+        }
+
+        .section-head .eyebrow {
+            justify-content: center
+        }
+
+        .section-head .eyebrow::before {
+            display: none
+        }
+
+        .section-head h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 3.5vw, 44px);
+            letter-spacing: -.02em;
+            margin-top: 10px;
+            color: var(--ink)
+        }
+
+        .section-head p {
+            color: var(--muted);
+            font-size: 16px;
+            max-width: 560px;
+            margin: 14px auto 0;
+            line-height: 1.7
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--line);
+            border: 2px solid var(--line);
+            border-radius: var(--r);
+            overflow: hidden
+        }
+
+        .svc {
+            background: var(--white);
+            padding: 0;
+            transition: box-shadow .25s, transform .25s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .svc:hover {
+            z-index: 2;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px)
+        }
+
+        .svc-thumb {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative
+        }
+
+        .svc-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(26, 42, 53, .55), transparent 50%)
+        }
+
+        .svc-icon {
+            position: absolute;
+            bottom: 16px;
+            left: 20px;
+            width: 44px;
+            height: 44px;
             background: var(--orange);
-            color: #fff;
-            padding: 60px 50px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1
         }
-        .contact-col h2 {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            font-style: italic;
-            margin-bottom: 25px;
+
+        .svc-body {
+            padding: 24px
         }
-        .contact-list p {
+
+        .svc-body h4 {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px
+        }
+
+        .svc-body p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 14px
+        }
+
+        .svc-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: .04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap .2s
+        }
+
+        .svc-link:hover {
+            gap: 9px
+        }
+
+        /* ── FEATURED ──────────────────────────────────── */
+        .featured {
+            padding: 80px 0;
+            background: var(--light)
+        }
+
+        .ftabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 16px 0 36px
+        }
+
+        .ftab {
+            height: 42px;
+            padding: 0 28px;
+            border: 1.5px solid var(--line);
+            background: var(--white);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit;
+            color: var(--ink2)
+        }
+
+        .ftab:first-child {
+            border-radius: 8px 0 0 8px
+        }
+
+        .ftab:last-child {
+            border-radius: 0 8px 8px 0
+        }
+
+        .ftab.on {
+            background: var(--orange);
+            color: var(--white);
+            border-color: var(--orange)
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(26, 42, 53, .07);
+            border: 1px solid var(--line);
+            transition: transform .25s, box-shadow .25s
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .card-img {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            position: relative
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.05)
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 5px
+        }
+
+        .card-price {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: rgba(26, 40, 52, .85);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px)
+        }
+
+        .card-body {
+            padding: 18px
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 6px
+        }
+
+        .card-body h5 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 6px;
+            color: var(--ink)
+        }
+
+        .card-body p {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 14px
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 14px
+        }
+
+        .card-meta span {
+            font-size: 12px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px
+        }
+
+        .card-actions .btn {
+            height: 36px;
+            padding: 0 14px;
+            font-size: 12px;
+            border-radius: 6px
+        }
+
+        /* ── AREAS ─────────────────────────────────────── */
+        .areas {
+            padding: 70px 0;
+            background: var(--white)
+        }
+
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .area {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 3/4;
+            cursor: pointer
+        }
+
+        .area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s
+        }
+
+        .area:hover img {
+            transform: scale(1.06)
+        }
+
+        .area::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(20, 32, 42, .72) 30%, transparent 70%)
+        }
+
+        .area-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1;
+            color: var(--white)
+        }
+
+        .area-info strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 700
+        }
+
+        .area-info span {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .75);
+            margin-top: 3px;
+            display: block
+        }
+
+        /* ── CONTACT ───────────────────────────────────── */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--ink) 0%, var(--ink2) 100%)
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .contact-map {
+            min-height: 340px;
+            background: linear-gradient(145deg, #1e3040 0%, #2a4258 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 40px
+        }
+
+        .map-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--orange);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .contact-map p {
+            color: #8daebe;
+            font-size: 15px;
+            text-align: center;
+            line-height: 1.6
+        }
+
+        .contact-map strong {
+            color: var(--white);
+            font-size: 18px;
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .contact-info {
+            background: var(--orange);
+            padding: 52px 44px;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .ci-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .65);
+            margin-bottom: 10px
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1
+        }
+
+        .ci-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 16px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.9);
-        }
-        .contact-list p strong {
-            display: inline-block;
-            width: 40px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-            color: #ffd2b5;
-        }
-        .btn-outline-white {
-            display: inline-block;
-            padding: 14px 30px;
-            border: 1px solid #fff;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-            margin-top: 20px;
-            border-radius: 4px;
-        }
-        .btn-outline-white:hover {
-            background: #fff;
-            color: var(--orange);
+            gap: 14px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1
         }
 
-        /* FOOTER */
-        .footer {
-            background: var(--slate);
-            color: #fff;
-            padding: 80px 0 40px;
+        .ci-item svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            opacity: .9
         }
+
+        .ci-item div strong {
+            display: block;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .6);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 3px
+        }
+
+        .ci-item div span,
+        .ci-item div a {
+            font-size: 15px;
+            color: var(--white);
+            line-height: 1.5
+        }
+
+        .contact-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 28px;
+            position: relative;
+            z-index: 1
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--orange);
+            border: 0;
+            font-weight: 700
+        }
+
+        .btn-white:hover {
+            background: #f5f5f5;
+            transform: translateY(-1px)
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: var(--white);
+            border: 0;
+            font-weight: 700
+        }
+
+        .btn-wa:hover {
+            background: #20bd5a;
+            transform: translateY(-1px)
+        }
+
+        /* ── FOOTER ────────────────────────────────────── */
+        .footer {
+            background: #0f1920;
+            color: #8daebe;
+            padding: 56px 0 28px
+        }
+
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 28px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
         }
-        .footer-heading {
-            color: var(--orange);
+
+        .footer-brand img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            object-position: left;
+            margin-bottom: 14px
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #6e8899;
+            max-width: 240px
+        }
+
+        .footer-col h6 {
             font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
             font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px
         }
-        .footer-col ul li { margin-bottom: 15px; }
+
         .footer-col a {
-            color: #a0aab2;
-            font-size: 13px;
-            transition: 0.3s;
+            display: block;
+            font-size: 14px;
+            color: #8daebe;
+            margin-bottom: 9px;
+            transition: color .2s
         }
-        .footer-col a:hover { color: #fff; }
-        .footer-col p { color: #a0aab2; font-size: 13px; margin-bottom: 15px; }
-        
-        .newsletter-form { display: flex; }
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            background: #fff;
-            font-size: 13px;
-            border-radius: 4px 0 0 4px;
+
+        .footer-col a:hover {
+            color: var(--white)
         }
-        .newsletter-form button {
-            background: var(--orange);
-            border: none;
-            color: #fff;
-            padding: 0 16px;
-            cursor: pointer;
-            border-radius: 0 4px 4px 0;
-            transition: 0.3s;
-        }
-        .newsletter-form button:hover { background: var(--orange-dark); }
-        
+
         .footer-bottom {
-            margin-top: 60px;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding-top: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 22px;
+            flex-wrap: wrap;
+            gap: 12px
         }
-        .copyright { font-size: 12px; color: #7f8d99; }
-        .footer-social a {
-            display: inline-flex;
-            width: 34px;
-            height: 34px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #4e6374
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px
+        }
+
+        .soc {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .06);
+            display: flex;
             align-items: center;
             justify-content: center;
-            color: #a0aab2;
-            font-size: 13px;
-            margin-left: 10px;
+            transition: background .2s;
+            cursor: pointer
         }
-        .footer-social a:hover { border-color: #fff; color: #fff; }
 
-        /* RESPONSIVE */
-        @media (max-width: 1100px) {
-            .properties-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-text-area { padding-right: 30px; }
-            .hero-title { font-size: 46px; }
-            .services-grid { grid-template-columns: repeat(3, 1fr); }
-            .about-left { padding: 50px 50px 50px 80px; }
-            .about-icon-circle { left: -30px; width: 60px; height: 60px; font-size: 24px; top: 60px; }
+        .soc:hover {
+            background: var(--orange)
         }
-        @media (max-width: 768px) {
-            .hero-wrapper { min-height: auto; }
-            .hero-overlay-right { width: 100%; height: 50%; bottom: 0; top: auto; }
-            .hero-content { flex-direction: column; height: auto; }
-            .hero-text-area { width: 100%; padding: 80px 20px; text-align: center; }
-            .hero-title { font-size: 38px; }
-            .hero-search-area { width: 100%; padding: 40px 20px; background: var(--slate-hero); align-items: center; }
-            .search-form { width: 100%; max-width: 400px; }
-            .about-grid { flex-direction: column; padding: 0 20px; }
-            .about-left, .about-right { width: 100%; margin: 0; padding: 40px; }
-            .about-icon-circle { display: none; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-area { flex-direction: column; height: auto; padding: 0 20px; margin: 40px auto; }
-            .map-col { width: 100%; height: 260px; }
-            .contact-col { position: relative; width: 100%; transform: none; right: 0; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-            .main-nav, .header-social { display: none; } 
-            .slider-wrapper { flex-direction: column; }
+
+        /* ── STICKY CTA ────────────────────────────────── */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 95;
+            background: rgba(255, 255, 255, .97);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--line);
+            padding: 10px 16px;
+            display: none
         }
-        @media (max-width: 500px) {
-            .properties-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-            .search-actions { padding-left: 0; flex-direction: column; align-items: flex-start; }
-            .footer-bottom { flex-direction: column; gap: 20px; }
+
+        .sticky-cta-inner {
+            display: flex;
+            gap: 8px;
+            max-width: 480px;
+            margin: 0 auto
+        }
+
+        .sticky-cta .btn {
+            flex: 1;
+            justify-content: center;
+            font-size: 13px
+        }
+
+        /* ── RESPONSIVE ────────────────────────────────── */
+        @media(max-width:1060px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .search-panel {
+                display: none
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .area-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr
+            }
+
+            .footer-brand {
+                grid-column: 1/-1
+            }
+
+            .svc-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:760px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            .hero-img {
+                min-height: 64vh
+            }
+
+            .hero-copy {
+                position: relative;
+                left: auto;
+                bottom: auto;
+                padding: 28px 22px;
+                max-width: none
+            }
+
+            .hero-copy h1 {
+                font-size: clamp(30px, 9vw, 44px)
+            }
+
+            .cards,
+            .svc-grid,
+            .area-grid {
+                grid-template-columns: 1fr
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .footer-brand {
+                grid-column: 1/-1
+            }
+
+            .sticky-cta {
+                display: block
+            }
+
+            body {
+                padding-bottom: 76px
+            }
+
+            .about-main,
+            .about-panel {
+                padding: 32px 24px
+            }
+
+            .contact-info {
+                padding: 36px 28px
+            }
+
+            .section-head h2 {
+                font-size: 28px
+            }
         }
     </style>
+
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="#" class="logo">
-                <img src="assets/logo-client.png" alt="Ken Estate Agents">
-            </a>
-            <nav class="main-nav">
-                <a href="#" class="active">HOME</a>
-                <a href="#about">ABOUT</a>
-                <a href="#featured">BROWSE</a>
-                <a href="#services">SELL</a>
-                <a href="#services">RENT</a>
-                <a href="#contact">CONTACT</a>
+    <!-- NAV -->
+    <header class="nav" id="top">
+        <div class="inner nav-row">
+            <a class="brand" href="#top"><img src="assets/logo-client.png" alt="Ken Estate Agents" /></a>
+            <nav class="nav-links" id="nav-links">
+                <a href="#top" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#featured">Properties</a>
+                <a href="#book">Contact</a>
             </nav>
-            <div class="header-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="nav-cta">
+                <a class="btn btn-outline" href="#featured">Browse Listings</a>
+                <a class="btn btn-primary" href="#book">Book Viewing</a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </header>
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#top" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#featured" onclick="toggleMenu()">Properties</a>
+        <a href="#book" onclick="toggleMenu()">Contact</a>
+        <div style="display:flex;gap:10px;margin-top:8px">
+            <a class="btn btn-outline" href="#featured" style="flex:1;justify-content:center"
+                onclick="toggleMenu()">Browse</a>
+            <a class="btn btn-primary" href="#book" style="flex:1;justify-content:center" onclick="toggleMenu()">Book
+                Viewing</a>
+        </div>
+    </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero-wrapper">
-        <div class="hero-overlay-right"></div>
-        <div class="container hero-content">
-            <div class="hero-text-area">
-                <h1 class="hero-title">
-                    <span class="font-light">WE HELP</span>
-                    <strong>HOMES AND PEOPLE</strong>
-                    <strong>FIND EACH OTHER.</strong>
-                </h1>
-            </div>
-            <div class="hero-search-area">
-                <div class="search-tabs">
-                    <button class="active">Properties For Sale</button>
-                    <button>For Rent</button>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-img">
+            <img src="assets/hero-ken.webp" alt="Premium Bulawayo property" />
+            <div class="hero-copy">
+                <div class="hero-eyebrow">Premium Property Advisory · Bulawayo, Zimbabwe</div>
+                <h1>We help homes<br>and people<br><em>find each other.</em></h1>
+                <p>Bulawayo's trusted estate agents for over 15 years — connecting buyers, sellers, landlords and
+                    tenants across Zimbabwe's finest suburbs.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#featured">View Properties</a>
+                    <a class="btn btn-ghost" href="#services">Our Services</a>
                 </div>
-                <form class="search-form" onsubmit="event.preventDefault();">
-                    <div class="form-row">
-                        <label>Where:</label>
-                        <input type="text" placeholder="Area, Town or Zip Code">
-                    </div>
-                    <div class="form-row">
-                        <label>Price:</label>
-                        <div class="price-inputs">
-                            <select><option>Any</option></select>
-                            <span class="price-span">to</span>
-                            <select><option>Any</option></select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label>Beds:</label>
-                        <select><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select>
-                    </div>
-                    <div class="form-row">
-                        <label>Type:</label>
-                        <select><option>Residential & Commercial</option><option>House</option><option>Apartment</option></select>
-                    </div>
-                    <div class="search-actions">
-                        <button class="btn-primary" type="button">Search</button>
-                        <a href="#" class="advanced-link">Advanced Search</a>
-                    </div>
-                </form>
             </div>
         </div>
+        <aside class="search-panel">
+            <h3>Find Your Property</h3>
+            <div class="s-tabs">
+                <button class="s-tab on" onclick="setTab(this,'sale')">For Sale</button>
+                <button class="s-tab" onclick="setTab(this,'rent')">For Rent</button>
+            </div>
+            <div class="s-grid">
+                <div class="s-field" style="grid-column:1/-1"><label>Location</label><input id="s-loc" value=""
+                        placeholder="Burnside, Hillside, Suburbs…" /></div>
+                <div class="s-field"><label>Min Price (USD)</label>
+                    <select id="s-min">
+                        <option value="">Any</option>
+                        <option>$50,000</option>
+                        <option>$80,000</option>
+                        <option>$120,000</option>
+                        <option>$180,000</option>
+                        <option>$250,000</option>
+                        <option>$400,000</option>
+                    </select>
+                </div>
+                <div class="s-field"><label>Max Price (USD)</label>
+                    <select id="s-max">
+                        <option value="">Any</option>
+                        <option>$100,000</option>
+                        <option>$150,000</option>
+                        <option>$200,000</option>
+                        <option>$300,000</option>
+                        <option>$500,000</option>
+                        <option>$750,000+</option>
+                    </select>
+                </div>
+                <div class="s-field"><label>Bedrooms</label>
+                    <select id="s-beds">
+                        <option value="">Any</option>
+                        <option>1+</option>
+                        <option>2+</option>
+                        <option>3+</option>
+                        <option>4+</option>
+                        <option>5+</option>
+                    </select>
+                </div>
+                <div class="s-field"><label>Property Type</label>
+                    <select id="s-type">
+                        <option value="">Any</option>
+                        <option>House</option>
+                        <option>Townhouse</option>
+                        <option>Cottage</option>
+                        <option>Flat</option>
+                        <option>Commercial</option>
+                        <option>Stand</option>
+                    </select>
+                </div>
+            </div>
+            <div class="s-actions">
+                <a class="btn btn-primary" href="#featured" style="flex:1" onclick="doSearch()">Search Properties</a>
+            </div>
+            <p style="font-size:12px;color:#7090a3;margin-top:8px">Advanced search &amp; WhatsApp enquiries available
+            </p>
+        </aside>
     </section>
 
-    <!-- OVERLAPPING ABOUT SECTION -->
-    <section class="about-section" id="about">
-        <div class="container about-grid">
-            <div class="about-left">
-                <div class="about-icon-circle"><i class="fas fa-handshake"></i></div>
-                <div class="eyebrow">WHO WE ARE</div>
-                <h2>Bringing new life to properties and matching them with a new family</h2>
-                <p>For over 15 years, Ken Estate Agents has been committed to making the Bulawayo property market a transparent, practical and hassle-free experience.  By creating a reliable doorway connecting home buyers, sellers, landlords, and tenants, we provide the listings, professional valuation, and negotiation tools you need to make your property journey as easy as possible.</p>
-                <a href="#about" class="read-more">READ MORE</a>
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="inner">
+            <div class="stats-row">
+                <div class="stat"><strong>15+</strong><span>Years in Bulawayo</span></div>
+                <div class="stat"><strong>480+</strong><span>Properties Sold</span></div>
+                <div class="stat"><strong>320+</strong><span>Tenants Placed</span></div>
+                <div class="stat"><strong>98%</strong><span>Client Satisfaction</span></div>
+                <div class="stat"><strong>12</strong><span>Suburbs Covered</span></div>
             </div>
-            <div class="about-right">
-                <div class="eyebrow-white">WHY CHOOSE US</div>
-                <h2>Introduction to Ken Estate Agents</h2>
-                <div class="play-btn"><i class="fas fa-play"></i></div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="inner">
+            <div class="about-grid">
+                <article class="about-main">
+                    <div class="eyebrow">Who We Are</div>
+                    <h2>Bringing new life to properties and matching them with the right family.</h2>
+                    <p>For over 15 years, Ken Estate Agents has been the cornerstone of Bulawayo's property market —
+                        providing transparent, practical and hassle-free service to buyers, sellers, landlords and
+                        tenants across Matabeleland's most sought-after suburbs.</p>
+                    <p>From Burnside to Hillside, Famona to the CBD, we combine deep local knowledge with responsive
+                        communication and proven negotiation skills to deliver results that matter.</p>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap">
+                        <a class="btn btn-primary" href="#book">Book a Consultation</a>
+                        <a class="btn btn-outline" href="#services">Our Services</a>
+                    </div>
+                </article>
+                <article class="about-panel">
+                    <div class="eyebrow">Why Choose Us</div>
+                    <h3>Responsive service, realistic advice and strong results for every client.</h3>
+                    <p>From first enquiry to confirmed viewing, we keep momentum high and communication simple — so you
+                        can make confident decisions.</p>
+                    <div class="pillars">
+                        <div class="pillar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <path d="M9 12l2 2 4-4" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                            <p>Deep knowledge of all Bulawayo suburbs</p>
+                        </div>
+                        <div class="pillar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <path d="M9 12l2 2 4-4" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                            <p>Accredited valuations &amp; transparent fees</p>
+                        </div>
+                        <div class="pillar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <path d="M9 12l2 2 4-4" />
+                                <circle cx="12" cy="12" r="10" />
+                            </svg>
+                            <p>Fast response — same-day viewings arranged</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- SERVICES -->
     <section class="services" id="services">
-        <div class="container services-grid">
-            <div class="service-box">
-                <div class="service-icon-wrap"><i class="fas fa-building"></i></div>
-                <h3>Property Management</h3>
-                <p>Comprehensive care for Bulawayo landlords. We handle tenant vetting, rent collection, and property maintenance.</p>
+        <div class="inner">
+            <div class="section-head">
+                <div class="eyebrow">What We Do</div>
+                <h2>Our Property Services</h2>
+                <p>Comprehensive real estate solutions tailored to Bulawayo's dynamic market — for homeowners, investors
+                    and tenants alike.</p>
             </div>
-            <div class="service-box">
-                <div class="service-icon-wrap"><i class="fas fa-tags"></i></div>
-                <h3>Property Sales</h3>
-                <p>Maximizing market value for your home. From listing to closing, we connect sellers with qualified buyers.</p>
-            </div>
-            <div class="service-box">
-                <div class="service-icon-wrap"><i class="fas fa-key"></i></div>
-                <h3>Property Rentals</h3>
-                <p>Matching quality tenants with excellent homes. Streamlined leasing processes for both long-term and short-term stays.</p>
-            </div>
-            <div class="service-box">
-                <div class="service-icon-wrap"><i class="fas fa-chart-line"></i></div>
-                <h3>Property Valuations</h3>
-                <p>Accurate, data-driven appraisals reflecting current market conditions across Zimbabwe for sales or insurance.</p>
-            </div>
-            <div class="service-box">
-                <div class="service-icon-wrap"><i class="fas fa-city"></i></div>
-                <h3>Commercial Property</h3>
-                <p>Specialized management, leasing, and sales for retail, office, and industrial properties in Belmont and the CBD.</p>
+            <div class="svc-grid">
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/5.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Property Management</h4>
+                        <p>Comprehensive care for Bulawayo landlords. We handle tenant vetting, rent collection in USD
+                            or ZiG, routine inspections and maintenance coordination — so you earn without the stress.
+                        </p>
+                        <a class="svc-link" href="#book">Enquire now →</a>
+                    </div>
+                </article>
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/39.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Property Sales</h4>
+                        <p>Maximising market value for your Bulawayo home. From professional listing photography to
+                            closing, we connect sellers with qualified buyers across Burnside, Hillside, Famona and
+                            beyond.</p>
+                        <a class="svc-link" href="#book">List your property →</a>
+                    </div>
+                </article>
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/3.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Property Rentals</h4>
+                        <p>Matching quality tenants with excellent homes across Bulawayo's residential suburbs.
+                            Streamlined leasing processes, thorough vetting and ongoing tenancy support for landlords
+                            and renters.</p>
+                        <a class="svc-link" href="#book">Find a rental →</a>
+                    </div>
+                </article>
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/34.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Property Valuations</h4>
+                        <p>Accurate, data-driven appraisals of residential and commercial property across Zimbabwe.
+                            Whether for sale, insurance, estate or investment purposes, our valuations reflect true
+                            current market conditions.</p>
+                        <a class="svc-link" href="#book">Book a valuation →</a>
+                    </div>
+                </article>
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/38.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Commercial Property</h4>
+                        <p>Specialised management, leasing and sales for retail, office and industrial properties across
+                            Belmont Industrial, the CBD and major arterial routes. Serving businesses from SMEs to
+                            corporate tenants.</p>
+                        <a class="svc-link" href="#book">Commercial enquiry →</a>
+                    </div>
+                </article>
+
+                <article class="svc">
+                    <div class="svc-thumb" style="background-image:url('assets/properties/40.jpg')">
+                        <div class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                                stroke-width="2.2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg></div>
+                    </div>
+                    <div class="svc-body">
+                        <h4>Property Acquisition</h4>
+                        <p>Expert buyer's representation for individuals and investors looking to acquire residential or
+                            commercial property in Bulawayo. We shortlist, negotiate and guide you from search to
+                            transfer.</p>
+                        <a class="svc-link" href="#book">Start your search →</a>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
     <!-- FEATURED PROPERTIES -->
     <section class="featured" id="featured">
-        <div class="container">
-            <h2 class="featured-title">Featured Properties</h2>
-            <div class="featured-tabs">
-                <button class="active">FOR SALE</button>
-                <button>FOR RENT</button>
+        <div class="inner">
+            <div class="section-head">
+                <div class="eyebrow">Our Listings</div>
+                <h2>Featured Properties</h2>
+                <p>Handpicked homes and investment opportunities across Bulawayo's most desirable suburbs.</p>
             </div>
-            <div class="slider-wrapper">
-                <button class="slider-arrow"><i class="fas fa-chevron-left"></i></button>
-                
-                <div class="properties-grid">
-                    <article class="property-card">
-                        <div class="property-img-wrap">
-                            <img src="assets/properties/39.jpg" alt="Burnside House">
-                            <div class="property-overlay"><button class="btn-view">View Details</button></div>
+            <div class="ftabs">
+                <button class="ftab on" onclick="setFTab(this,'sale')">For Sale</button>
+                <button class="ftab" onclick="setFTab(this,'rent')">For Rent</button>
+            </div>
+            <div class="cards" id="prop-cards">
+                <article class="card" data-type="sale">
+                    <div class="card-img">
+                        <img src="assets/properties/39.jpg" alt="4 Bed — Burnside" />
+                        <div class="card-badge">For Sale</div>
+                        <div class="card-price">USD 185,000</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Burnside · Bulawayo</div>
+                        <h5>4 Bedroom Family Home</h5>
+                        <p>Quiet street with generous stand, Msasa hardwood floors and a fully renovated kitchen.</p>
+                        <div class="card-meta"><span>🛏 4 Beds</span><span>🚿 2 Baths</span><span>🚗 2 Garages</span>
                         </div>
-                        <div class="property-info">
-                            <span class="property-tag">BULAWAYO</span>
-                            <h3 class="property-title">Burnside Family Home</h3>
-                            <p class="property-address">142 1/2 Burnside Road, Bulawayo</p>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Book Viewing</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20I%20am%20interested%20in%20the%204%20Bed%20home%20in%20Burnside"
+                                target="_blank">WhatsApp</a>
                         </div>
-                    </article>
-                    <article class="property-card">
-                        <div class="property-img-wrap">
-                            <img src="assets/properties/40.jpg" alt="Hillside Mansion">
-                            <div class="property-overlay"><button class="btn-view">View Details</button></div>
+                    </div>
+                </article>
+                <article class="card" data-type="sale">
+                    <div class="card-img">
+                        <img src="assets/properties/40.jpg" alt="3 Bed Townhouse — Hillside" />
+                        <div class="card-badge">For Sale</div>
+                        <div class="card-price">USD 135,000</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Hillside · Bulawayo</div>
+                        <h5>3 Bedroom Townhouse</h5>
+                        <p>Elevated suburb views, open-plan living and a private walled garden in sought-after Hillside.
+                        </p>
+                        <div class="card-meta"><span>🛏 3 Beds</span><span>🚿 2 Baths</span><span>🌿 Garden</span></div>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Book Viewing</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20interested%20in%203%20Bed%20Hillside%20townhouse"
+                                target="_blank">WhatsApp</a>
                         </div>
-                        <div class="property-info">
-                            <span class="property-tag">BULAWAYO</span>
-                            <h3 class="property-title">Hillside View Estate</h3>
-                            <p class="property-address">54 Cecil Avenue, Hillside, Bulawayo</p>
+                    </div>
+                </article>
+                <article class="card" data-type="sale">
+                    <div class="card-img">
+                        <img src="assets/properties/41.jpg" alt="5 Bed Executive — Famona" />
+                        <div class="card-badge">For Sale</div>
+                        <div class="card-price">USD 320,000</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Famona · Bulawayo</div>
+                        <h5>5 Bedroom Executive Home</h5>
+                        <p>Grand Famona residence with Jacaranda-lined driveway, swimming pool and staff quarters.</p>
+                        <div class="card-meta"><span>🛏 5 Beds</span><span>🚿 3 Baths</span><span>🏊 Pool</span></div>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Book Viewing</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20interested%20in%205%20Bed%20Famona%20executive%20home"
+                                target="_blank">WhatsApp</a>
                         </div>
-                    </article>
-                    <article class="property-card">
-                        <div class="property-img-wrap">
-                            <img src="assets/properties/41.jpg" alt="Suburbs Villa">
-                            <div class="property-overlay"><button class="btn-view">View Details</button></div>
+                    </div>
+                </article>
+                <article class="card" data-type="rent" style="display:none">
+                    <div class="card-img">
+                        <img src="assets/properties/3.jpg" alt="3 Bed — Suburbs" />
+                        <div class="card-badge" style="background:var(--ink)">For Rent</div>
+                        <div class="card-price">USD 650/mo</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Suburbs · Bulawayo</div>
+                        <h5>3 Bedroom Suburban Home</h5>
+                        <p>Classic Suburbs home with spacious lounge, secure perimeter wall and mature garden.</p>
+                        <div class="card-meta"><span>🛏 3 Beds</span><span>🚿 2 Baths</span><span>🚗 Carport</span>
                         </div>
-                        <div class="property-info">
-                            <span class="property-tag">BULAWAYO</span>
-                            <h3 class="property-title">Suburbs Classic Villa</h3>
-                            <p class="property-address">12 Heyman Road, Suburbs, Bulawayo</p>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Enquire Now</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20interested%20in%203%20Bed%20Suburbs%20rental"
+                                target="_blank">WhatsApp</a>
                         </div>
-                    </article>
-                    <article class="property-card">
-                        <div class="property-img-wrap">
-                            <img src="assets/properties/24.jpg" alt="Famona Cottage">
-                            <div class="property-overlay"><button class="btn-view">View Details</button></div>
+                    </div>
+                </article>
+                <article class="card" data-type="rent" style="display:none">
+                    <div class="card-img">
+                        <img src="assets/properties/5.jpg" alt="2 Bed Cottage — Greenhill" />
+                        <div class="card-badge" style="background:var(--ink)">For Rent</div>
+                        <div class="card-price">USD 380/mo</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Greenhill · Bulawayo</div>
+                        <h5>2 Bedroom Garden Cottage</h5>
+                        <p>Charming self-contained cottage set within a large private property. Quiet and very secure.
+                        </p>
+                        <div class="card-meta"><span>🛏 2 Beds</span><span>🚿 1 Bath</span><span>🌿 Furnished
+                                opt.</span></div>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Enquire Now</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20interested%20in%20Greenhill%20cottage%20rental"
+                                target="_blank">WhatsApp</a>
                         </div>
-                        <div class="property-info">
-                            <span class="property-tag">BULAWAYO</span>
-                            <h3 class="property-title">Famona Garden Cottage</h3>
-                            <p class="property-address">8 21st Avenue, Famona, Bulawayo</p>
+                    </div>
+                </article>
+                <article class="card" data-type="rent" style="display:none">
+                    <div class="card-img">
+                        <img src="assets/properties/35.jpg" alt="4 Bed — Matsheumhlope" />
+                        <div class="card-badge" style="background:var(--ink)">For Rent</div>
+                        <div class="card-price">USD 900/mo</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tag">Matsheumhlope · Bulawayo</div>
+                        <h5>4 Bedroom Family Home</h5>
+                        <p>Spacious Matsheumhlope property with separate study, double garage and working borehole.</p>
+                        <div class="card-meta"><span>🛏 4 Beds</span><span>🚿 2 Baths</span><span>💧 Borehole</span>
                         </div>
-                    </article>
-                </div>
-                
-                <button class="slider-arrow"><i class="fas fa-chevron-right"></i></button>
+                        <div class="card-actions">
+                            <a class="btn btn-primary" href="#book">Enquire Now</a>
+                            <a class="btn btn-outline"
+                                href="https://wa.me/263777123456?text=Hi%2C%20interested%20in%204%20Bed%20Matsheumhlope%20rental"
+                                target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align:center;margin-top:44px">
+                <a class="btn btn-outline" href="#book" style="height:50px;padding:0 40px;font-size:15px">Contact Us for
+                    Full Listings</a>
             </div>
         </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section class="partners">
-        <div class="container partners-grid">
-            <div class="partner-logo">
-                <i class="fas fa-house-user"></i>
-                <span>Estate Agents Council</span>
+    <!-- AREAS -->
+    <section class="areas" id="areas">
+        <div class="inner">
+            <div class="section-head">
+                <div class="eyebrow">Coverage</div>
+                <h2>Suburbs We Serve</h2>
+                <p>Active listings and deep local expertise across Bulawayo's most desirable residential neighbourhoods.
+                </p>
             </div>
-            <div class="partner-logo">
-                <i class="fas fa-handshake"></i>
-                <span>ZIM Real Estate Association</span>
-            </div>
-            <div class="partner-logo">
-                <i class="fas fa-chart-pie"></i>
-                <span>Valuers Institute of Zimbabwe</span>
-            </div>
-            <div class="partner-logo">
-                <i class="fas fa-shield-alt"></i>
-                <span>Bulawayo City Trust</span>
+            <div class="area-grid">
+                <div class="area"><img src="assets/properties/9.jpg" alt="Burnside Bulawayo" />
+                    <div class="area-info"><strong>Burnside</strong><span>32 active listings</span></div>
+                </div>
+                <div class="area"><img src="assets/properties/24.jpg" alt="Hillside Bulawayo" />
+                    <div class="area-info"><strong>Hillside</strong><span>24 active listings</span></div>
+                </div>
+                <div class="area"><img src="assets/properties/15.jpg" alt="Famona Bulawayo" />
+                    <div class="area-info"><strong>Famona</strong><span>18 active listings</span></div>
+                </div>
+                <div class="area"><img src="assets/properties/20.jpg" alt="Suburbs Bulawayo" />
+                    <div class="area-info"><strong>Suburbs</strong><span>27 active listings</span></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT AREA -->
-    <section class="contact-area-wrapper" id="contact">
-        <div class="container contact-area">
-            <div class="map-col"></div>
-            <div class="contact-col">
-                <div class="eyebrow-white">CONTACT</div>
-                <h2>Get in Touch</h2>
-                <div class="contact-list">
-                    <p><strong>ADD</strong> 15a Fife Street, Bulawayo, Zimbabwe</p>
-                    <p><strong>PH</strong> +263 77 712 3456</p>
-                    <p><strong>EM</strong> viewings@kenestateagents.co.zw</p>
+    <!-- CONTACT -->
+    <section class="contact-section" id="book">
+        <div class="inner">
+            <div class="section-head" style="margin-bottom:44px">
+                <div class="eyebrow" style="justify-content:center;color:#f0a468">Get in Touch</div>
+                <h2 style="color:#fff">Book a Private Viewing</h2>
+                <p style="color:#8daebe">Ready to buy, sell, rent or invest? Our team is available 6 days a week for
+                    consultations and private viewings across Bulawayo.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-map">
+                    <div class="map-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <div style="text-align:center">
+                        <strong>Ken Estate Agents</strong>
+                        <p>15a Fife Street, Bulawayo CBD<br>Bulawayo, Zimbabwe</p>
+                    </div>
+                    <a class="btn btn-outline" href="https://maps.google.com/?q=Fife+Street+Bulawayo+Zimbabwe"
+                        target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.3)">Open in
+                        Google Maps ↗</a>
                 </div>
-                <a href="mailto:viewings@kenestateagents.co.zw" class="btn-outline-white">CONTACT US</a>
+                <aside class="contact-info">
+                    <div class="ci-eyebrow">Contact Details</div>
+                    <h3>Get in Touch</h3>
+                    <div class="ci-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <div><strong>Address</strong><span>15a Fife Street, Bulawayo CBD, Zimbabwe</span></div>
+                    </div>
+                    <div class="ci-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 010 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+                        </svg>
+                        <div><strong>Phone</strong><a href="tel:+263777123456">+263 77 712 3456</a></div>
+                    </div>
+                    <div class="ci-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        <div><strong>Email</strong><a
+                                href="mailto:viewings@kenestateagents.co.zw">viewings@kenestateagents.co.zw</a></div>
+                    </div>
+                    <div class="contact-btns">
+                        <a class="btn btn-white"
+                            href="mailto:viewings@kenestateagents.co.zw?subject=Book%20Viewing%20Request%20-%20Ken%20Estate%20Agents">📧
+                            Send Email</a>
+                        <a class="btn btn-wa"
+                            href="https://wa.me/263777123456?text=Hi%20Ken%20Estate%20Agents%2C%20I%20would%20like%20to%20book%20a%20private%20viewing."
+                            target="_blank" rel="noopener">💬 WhatsApp Us</a>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container">
+        <div class="inner">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h5 class="footer-heading">SELLING</h5>
-                    <ul>
-                        <li><a href="#">Why Ken Estate Agents</a></li>
-                        <li><a href="#">Market Update</a></li>
-                        <li><a href="#">Selling at Auction</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="assets/logo-client.png" alt="Ken Estate Agents" />
+                    <p>Bulawayo's trusted property specialists since 2008. Sales, rentals, management and valuations
+                        across Zimbabwe's finest suburbs.</p>
                 </div>
                 <div class="footer-col">
-                    <h5 class="footer-heading">BUYING</h5>
-                    <ul>
-                        <li><a href="#">Homes for Sale</a></li>
-                        <li><a href="#">Buyers Guide</a></li>
-                        <li><a href="#">Open Homes</a></li>
-                        <li><a href="#">Auctions</a></li>
-                        <li><a href="#">Leaseholds</a></li>
-                    </ul>
+                    <h6>Selling</h6>
+                    <a href="#services">Property Valuations</a>
+                    <a href="#services">Marketing Exposure</a>
+                    <a href="#book">Seller Advisory</a>
+                    <a href="#book">Auction Listings</a>
                 </div>
                 <div class="footer-col">
-                    <h5 class="footer-heading">RENTING</h5>
-                    <ul>
-                        <li><a href="#">Browse Homes</a></li>
-                        <li><a href="#">Tenant Tips</a></li>
-                    </ul>
+                    <h6>Buying</h6>
+                    <a href="#featured">Homes for Sale</a>
+                    <a href="#areas">Suburbs Guide</a>
+                    <a href="#book">Acquisition Support</a>
+                    <a href="#book">Open Viewings</a>
                 </div>
                 <div class="footer-col">
-                    <h5 class="footer-heading">SUPPORT</h5>
-                    <ul>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Procedure Docs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
+                    <h6>Renting</h6>
+                    <a href="#featured">Rentals Available</a>
+                    <a href="#services">Tenant Support</a>
+                    <a href="#services">Landlord Services</a>
+                    <a href="#book">Short-Term Lets</a>
                 </div>
                 <div class="footer-col">
-                    <h5 class="footer-heading">SIGN UP TO OUR NEWSLETTER</h5>
-                    <form class="newsletter-form" onsubmit="event.preventDefault();">
-                        <input type="email" placeholder="Your Email">
-                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
-                    </form>
+                    <h6>Support</h6>
+                    <a href="#about">About Us</a>
+                    <a href="#book">Contact</a>
+                    <a href="https://maps.google.com/?q=Fife+Street+Bulawayo" target="_blank" rel="noopener">Find Us</a>
+                    <a href="#top">Privacy Policy</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="copyright">© Ken Estate Agents, LLC 2026. All Rights Reserved.</div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <p>© 2025 Ken Estate Agents. All rights reserved. · 15a Fife Street, Bulawayo, Zimbabwe</p>
+                <div class="social-links">
+                    <a class="soc" href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24"
+                            fill="#8daebe">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                        </svg></a>
+                    <a class="soc" href="https://wa.me/263777123456" aria-label="WhatsApp"><svg width="16" height="16"
+                            viewBox="0 0 24 24" fill="#8daebe">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                        </svg></a>
+                    <a class="soc" href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="#8daebe" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" fill="#8daebe" stroke="none" />
+                        </svg></a>
+                    <a class="soc" href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24"
+                            fill="#8daebe">
+                            <path
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg></a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-cta">
+        <div class="sticky-cta-inner">
+            <a class="btn btn-primary" href="#book">Book Viewing</a>
+            <a class="btn btn-outline"
+                href="https://wa.me/263777123456?text=I%20want%20to%20book%20a%20viewing%20with%20Ken%20Estate%20Agents"
+                target="_blank">WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var m = document.getElementById('mobile-menu');
+            m.classList.toggle('open');
+            document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+        }
+        function setTab(btn, type) {
+            btn.parentElement.querySelectorAll('.s-tab').forEach(function (b) { b.classList.remove('on') });
+            btn.classList.add('on');
+        }
+        function setFTab(btn, type) {
+            btn.parentElement.querySelectorAll('.ftab').forEach(function (b) { b.classList.remove('on') });
+            btn.classList.add('on');
+            document.querySelectorAll('#prop-cards .card').forEach(function (c) {
+                c.style.display = (c.dataset.type === type) ? '' : 'none';
+            });
+        }
+        function doSearch() {
+            var loc = document.getElementById('s-loc') ? document.getElementById('s-loc').value : '';
+            if (loc) window.location.hash = 'featured';
+        }
+        // Nav active state on scroll
+        var sections = ['about', 'services', 'featured', 'areas', 'book'];
+        window.addEventListener('scroll', function () {
+            var pos = window.scrollY + 120;
+            var found = false;
+            sections.forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el || found) return;
+                if (pos >= el.offsetTop && pos < el.offsetTop + el.offsetHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(function (a) { a.classList.remove('active') });
+                    var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+                    if (link) { link.classList.add('active'); found = true; }
+                }
+            });
+            if (!found && window.scrollY < 120) {
+                document.querySelectorAll('.nav-links a').forEach(function (a) { a.classList.remove('active') });
+                var h = document.querySelector('.nav-links a[href="#top"]');
+                if (h) h.classList.add('active');
+            }
+        });
+        // Scroll reveal
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.style.opacity = '1';
+                        e.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.svc,.card,.stat,.area,.pillar').forEach(function (el) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity .5s ease,transform .5s ease';
+                io.observe(el);
+            });
+        }
+    </script>
 </body>
+
 </html>
